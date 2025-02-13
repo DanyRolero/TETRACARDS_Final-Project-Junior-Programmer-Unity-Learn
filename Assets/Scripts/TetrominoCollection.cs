@@ -168,4 +168,56 @@ public class TetrominoCollection
         tetrominos[18].SetUnit(3, new Vector3Int(2, 1, 0));
         tetrominos_T.Add(tetrominos[18]);
     }
+
+    //----------------------------------------------------------------
+    public Tetromino GetTetromino(int index) 
+    {
+        return tetrominos[index];
+    }
+
+    //----------------------------------------------------------------
+    public Tetromino GetTetromino(TetrominoTypeShape typeShape, int index) 
+    {
+        switch (typeShape) {
+            case TetrominoTypeShape.I:
+                return tetrominos_I[index];
+            case TetrominoTypeShape.O:
+                return tetrominos_O[index];
+            case TetrominoTypeShape.T:
+                return tetrominos_T[index];
+            case TetrominoTypeShape.S:
+                return tetrominos_S[index];
+            case TetrominoTypeShape.Z:
+                return tetrominos_Z[index];
+            case TetrominoTypeShape.J:
+                return tetrominos_J[index];
+            case TetrominoTypeShape.L:
+                return tetrominos_L[index];
+            default:
+                return null;
+        }
+    }
+
+    //----------------------------------------------------------------
+    public Tetromino GetTetromino(int indexType, int index) {
+        switch (indexType) {
+            case 0:
+                return tetrominos_I[index];
+            case 1:
+                return tetrominos_O[index];
+            case 2:
+                return tetrominos_T[index];
+            case 3:
+                return tetrominos_S[index];
+            case 4:
+                return tetrominos_Z[index];
+            case 5:
+                return tetrominos_J[index];
+            case 6:
+                return tetrominos_L[index];
+            default:
+                return null;
+        }
+    }
+
 }

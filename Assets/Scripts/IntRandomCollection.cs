@@ -1,4 +1,7 @@
-public class IntRandomCollection : MonoBehaviour
+using System.Collections.Generic;
+using UnityEngine;
+
+public class IntRandomCollection
 {
     private List<int> _intCollection = new List<int>();
     private List<int> _copyIntCollection;
@@ -34,7 +37,7 @@ public class IntRandomCollection : MonoBehaviour
         {
             _ResetCopyCollection();
         }
-        int randomIndex = Random.Range(0, _copyIntCollection.Count-1);
+        int randomIndex = Random.Range(0, _copyIntCollection.Count);
         int randomInt = _copyIntCollection[randomIndex];
         _copyIntCollection.RemoveAt(randomIndex);
         return randomInt;
