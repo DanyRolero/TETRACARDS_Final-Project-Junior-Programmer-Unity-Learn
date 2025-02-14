@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TetrominoCollection
 {
-    List<Tetromino> tetrominos = new List<Tetromino>();
     List<Tetromino> tetrominos_I = new List<Tetromino>();
     List<Tetromino> tetrominos_O = new List<Tetromino>();
     List<Tetromino> tetrominos_T = new List<Tetromino>();
@@ -15,192 +14,154 @@ public class TetrominoCollection
 
     public TetrominoCollection()
     {
-        // 1
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.I));
-        tetrominos[0].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[0].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[0].SetUnit(2, new Vector3Int(2, 0, 0));
-        tetrominos[0].SetUnit(3, new Vector3Int(3, 0, 0));
-        tetrominos_I.Add(tetrominos[0]);
+        //----------------------------------------------------------------
+        // TETROMINOS I
+        //----------------------------------------------------------------
+        tetrominos_I.Add(new Tetromino());
+        tetrominos_I[0].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_I[0].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_I[0].SetUnit(2, new Vector3Int(2, 0, 0));
+        tetrominos_I[0].SetUnit(3, new Vector3Int(3, 0, 0));
 
-        // 2
+        tetrominos_I.Add(new Tetromino());
+        tetrominos_I[1].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_I[1].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_I[1].SetUnit(2, new Vector3Int(0, 2, 0));
+        tetrominos_I[1].SetUnit(3, new Vector3Int(0, 3, 0));
 
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.I));
-        tetrominos[1].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[1].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[1].SetUnit(2, new Vector3Int(0, 2, 0));
-        tetrominos[1].SetUnit(3, new Vector3Int(0, 3, 0));
-        tetrominos_I.Add(tetrominos[1]);
 
-        // 3
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.S));
-        tetrominos[2].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[2].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[2].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[2].SetUnit(3, new Vector3Int(1, 2, 0));
-        tetrominos_S.Add(tetrominos[2]);
+        //----------------------------------------------------------------
+        // TETROMINOS O
+        //----------------------------------------------------------------
+        tetrominos_O.Add(new Tetromino());
+        tetrominos_O[0].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_O[0].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_O[0].SetUnit(2, new Vector3Int(0, 1, 0));
+        tetrominos_O[0].SetUnit(3, new Vector3Int(1, 1, 0));
+
+
+        //----------------------------------------------------------------
+        // TETROMINOS T
+        //----------------------------------------------------------------
+        tetrominos_T.Add(new Tetromino());
+        tetrominos_T[0].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_T[0].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_T[0].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_T[0].SetUnit(3, new Vector3Int(0, 2, 0));
+
+        tetrominos_T.Add(new Tetromino());
+        tetrominos_T[1].SetUnit(0, new Vector3Int(1, 0, 0));
+        tetrominos_T[1].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_T[1].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_T[1].SetUnit(3, new Vector3Int(1, 2, 0));
+
+        tetrominos_T.Add(new Tetromino());
+        tetrominos_T[2].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_T[2].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_T[2].SetUnit(2, new Vector3Int(2, 0, 0));
+        tetrominos_T[2].SetUnit(3, new Vector3Int(1, 1, 0));
+
+        tetrominos_T.Add(new Tetromino());
+        tetrominos_T[3].SetUnit(0, new Vector3Int(1, 0, 0));
+        tetrominos_T[3].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_T[3].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_T[3].SetUnit(3, new Vector3Int(2, 1, 0));
+
+
+        //----------------------------------------------------------------
+        // TETROMINOS S
+        //----------------------------------------------------------------
+        tetrominos_S.Add(new Tetromino());
+        tetrominos_S[0].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_S[0].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_S[0].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_S[0].SetUnit(3, new Vector3Int(1, 2, 0));
+
+        tetrominos_S.Add(new Tetromino());
+        tetrominos_S[1].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_S[1].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_S[1].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_S[1].SetUnit(3, new Vector3Int(2, 1, 0));
+
+
+        //----------------------------------------------------------------
+        // TETROMINOS Z
+        //----------------------------------------------------------------
+        tetrominos_Z.Add(new Tetromino());
+        tetrominos_Z[0].SetUnit(0, new Vector3Int(1, 0, 0));
+        tetrominos_Z[0].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_Z[0].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_Z[0].SetUnit(3, new Vector3Int(0, 2, 0));
+
+        tetrominos_Z.Add(new Tetromino());
+        tetrominos_Z[1].SetUnit(0, new Vector3Int(1, 0, 0));
+        tetrominos_Z[1].SetUnit(1, new Vector3Int(2, 0, 0));
+        tetrominos_Z[1].SetUnit(2, new Vector3Int(0, 1, 0));
+        tetrominos_Z[1].SetUnit(3, new Vector3Int(1, 1, 0));
+
+
+        //----------------------------------------------------------------
+        // TETROMINOS J
+        //----------------------------------------------------------------
+        tetrominos_J.Add(new Tetromino());
+        tetrominos_J[0].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_J[0].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_J[0].SetUnit(2, new Vector3Int(0, 1, 0));
+        tetrominos_J[0].SetUnit(3, new Vector3Int(0, 2, 0));
+
+        tetrominos_J.Add(new Tetromino());
+        tetrominos_J[1].SetUnit(0, new Vector3Int(1, 0, 0));
+        tetrominos_J[1].SetUnit(1, new Vector3Int(1, 1, 0));
+        tetrominos_J[1].SetUnit(2, new Vector3Int(0, 2, 0));
+        tetrominos_J[1].SetUnit(3, new Vector3Int(1, 2, 0));
+
+        tetrominos_J.Add(new Tetromino());
+        tetrominos_J[2].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_J[2].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_J[2].SetUnit(2, new Vector3Int(2, 0, 0));
+        tetrominos_J[2].SetUnit(3, new Vector3Int(2, 1, 0));
+
+        tetrominos_J.Add(new Tetromino());
+        tetrominos_J[3].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_J[3].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_J[3].SetUnit(2, new Vector3Int(2, 0, 0)); 
+        tetrominos_J[3].SetUnit(3, new Vector3Int(2, 1, 0));
+
         
-        // 4
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.Z));
-        tetrominos[3].SetUnit(0, new Vector3Int(1, 0, 0));
-        tetrominos[3].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[3].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[3].SetUnit(3, new Vector3Int(0, 2, 0));
-        tetrominos_Z.Add(tetrominos[3]);
 
-        // 5
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.O));
-        tetrominos[4].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[4].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[4].SetUnit(2, new Vector3Int(0, 1, 0));
-        tetrominos[4].SetUnit(3, new Vector3Int(1, 1, 0));
-        tetrominos_O.Add(tetrominos[4]);
+        //----------------------------------------------------------------
+        // TETROMINOS J
+        //----------------------------------------------------------------
+        tetrominos_L.Add(new Tetromino());
+        tetrominos_L[0].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_L[0].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_L[0].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_L[0].SetUnit(3, new Vector3Int(1, 2, 0));
 
-        // 6
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.T));
-        tetrominos[5].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[5].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[5].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[5].SetUnit(3, new Vector3Int(0, 2, 0));
-        tetrominos_T.Add(tetrominos[5]);
+        tetrominos_L.Add(new Tetromino());
+        tetrominos_L[1].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_L[1].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_L[1].SetUnit(2, new Vector3Int(0, 2, 0));
+        tetrominos_L[1].SetUnit(3, new Vector3Int(1, 2, 0));
 
-        // 7
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.T));
-        tetrominos[6].SetUnit(0, new Vector3Int(1, 0, 0));
-        tetrominos[6].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[6].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[6].SetUnit(3, new Vector3Int(1, 2, 0));
-        tetrominos_T.Add(tetrominos[6]);
+        tetrominos_L.Add(new Tetromino());
+        tetrominos_L[2].SetUnit(0, new Vector3Int(0, 0, 0));
+        tetrominos_L[2].SetUnit(1, new Vector3Int(1, 0, 0));
+        tetrominos_L[2].SetUnit(2, new Vector3Int(2, 0, 0));
+        tetrominos_L[2].SetUnit(3, new Vector3Int(0, 1, 0));
 
-        // 8
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.J));
-        tetrominos[7].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[7].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[7].SetUnit(2, new Vector3Int(0, 1, 0));
-        tetrominos[7].SetUnit(3, new Vector3Int(0, 2, 0));
-        tetrominos_J.Add(tetrominos[7]);
-
-        // 9
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.J));
-        tetrominos[8].SetUnit(0, new Vector3Int(1, 0, 0));
-        tetrominos[8].SetUnit(1, new Vector3Int(1, 1, 0));
-        tetrominos[8].SetUnit(2, new Vector3Int(0, 2, 0));
-        tetrominos[8].SetUnit(3, new Vector3Int(1, 2, 0));
-        tetrominos_J.Add(tetrominos[8]);
-
-        // 10
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.L));
-        tetrominos[9].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[9].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[9].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[9].SetUnit(3, new Vector3Int(1, 2, 0));
-        tetrominos_L.Add(tetrominos[9]);
-
-        // 11
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.L));
-        tetrominos[10].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[10].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[10].SetUnit(2, new Vector3Int(0, 2, 0));
-        tetrominos[10].SetUnit(3, new Vector3Int(1, 2, 0));
-        tetrominos_L.Add(tetrominos[10]);
-
-        // 12
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.L));
-        tetrominos[11].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[11].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[11].SetUnit(2, new Vector3Int(2, 0, 0));
-        tetrominos[11].SetUnit(3, new Vector3Int(0, 1, 0));
-        tetrominos_L.Add(tetrominos[11]);
-
-        // 13
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.J));
-        tetrominos[12].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[12].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[12].SetUnit(2, new Vector3Int(2, 0, 0));
-        tetrominos[12].SetUnit(3, new Vector3Int(2, 1, 0));
-        tetrominos_J.Add(tetrominos[12]);
-
-        // 14
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.L));
-        tetrominos[13].SetUnit(0, new Vector3Int(2, 0, 0));
-        tetrominos[13].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[13].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[13].SetUnit(3, new Vector3Int(2, 1, 0));
-        tetrominos_L.Add(tetrominos[13]);
-
-        // 15
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.J));
-        tetrominos[14].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[14].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[14].SetUnit(2, new Vector3Int(2, 0, 0)); 
-        tetrominos[14].SetUnit(3, new Vector3Int(2, 1, 0));
-        tetrominos_J.Add(tetrominos[14]);
-
-        // 16
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.S));
-        tetrominos[15].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[15].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[15].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[15].SetUnit(3, new Vector3Int(2, 1, 0));
-        tetrominos_S.Add(tetrominos[15]);
-
-        // 17
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.Z));
-        tetrominos[16].SetUnit(0, new Vector3Int(1, 0, 0));
-        tetrominos[16].SetUnit(1, new Vector3Int(2, 0, 0));
-        tetrominos[16].SetUnit(2, new Vector3Int(0, 1, 0));
-        tetrominos[16].SetUnit(3, new Vector3Int(1, 1, 0));
-        tetrominos_Z.Add(tetrominos[16]);
-
-        // 18
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.T));
-        tetrominos[17].SetUnit(0, new Vector3Int(0, 0, 0));
-        tetrominos[17].SetUnit(1, new Vector3Int(1, 0, 0));
-        tetrominos[17].SetUnit(2, new Vector3Int(2, 0, 0));
-        tetrominos[17].SetUnit(3, new Vector3Int(1, 1, 0));
-        tetrominos_T.Add(tetrominos[17]);
-
-        // 19
-        tetrominos.Add(new Tetromino(TetrominoTypeShape.T));
-        tetrominos[18].SetUnit(0, new Vector3Int(1, 0, 0));
-        tetrominos[18].SetUnit(1, new Vector3Int(0, 1, 0));
-        tetrominos[18].SetUnit(2, new Vector3Int(1, 1, 0));
-        tetrominos[18].SetUnit(3, new Vector3Int(2, 1, 0));
-        tetrominos_T.Add(tetrominos[18]);
+        tetrominos_L.Add(new Tetromino());
+        tetrominos_L[3].SetUnit(0, new Vector3Int(2, 0, 0));
+        tetrominos_L[3].SetUnit(1, new Vector3Int(0, 1, 0));
+        tetrominos_L[3].SetUnit(2, new Vector3Int(1, 1, 0));
+        tetrominos_L[3].SetUnit(3, new Vector3Int(2, 1, 0));
+        
     }
 
-    //----------------------------------------------------------------
-    public Tetromino GetTetromino(int index) 
-    {
-        return tetrominos[index];
-    }
 
     //----------------------------------------------------------------
-    public Tetromino GetTetromino(TetrominoTypeShape typeShape, int index) 
-    {
-        switch (typeShape) {
-            case TetrominoTypeShape.I:
-                return tetrominos_I[index];
-            case TetrominoTypeShape.O:
-                return tetrominos_O[index];
-            case TetrominoTypeShape.T:
-                return tetrominos_T[index];
-            case TetrominoTypeShape.S:
-                return tetrominos_S[index];
-            case TetrominoTypeShape.Z:
-                return tetrominos_Z[index];
-            case TetrominoTypeShape.J:
-                return tetrominos_J[index];
-            case TetrominoTypeShape.L:
-                return tetrominos_L[index];
-            default:
-                return null;
-        }
-    }
-
-    //----------------------------------------------------------------
-    public Tetromino GetTetromino(int indexType, int index) {
-        switch (indexType) {
+    public Tetromino GetTetromino(int indexShapeIndex, int index) {
+        switch (indexShapeIndex) {
             case 0:
                 return tetrominos_I[index];
             case 1:

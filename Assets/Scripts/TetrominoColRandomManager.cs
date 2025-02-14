@@ -3,79 +3,78 @@ using UnityEngine;
 public class TetrominoColRandomManager
 {
     TetrominoCollection tetrominoCollection = new TetrominoCollection();
-    public IntRandomCollection tetrominoTypes = new IntRandomCollection(7);
+    public IntRandomCollection tetrominoShape = new IntRandomCollection(7);
     public IntRandomCollection width1Positions = new IntRandomCollection(10);
     public IntRandomCollection width2Positions = new IntRandomCollection(9);
     public IntRandomCollection width3Positions = new IntRandomCollection(8);
     public IntRandomCollection width4Positions = new IntRandomCollection(7);
     public IntRandomCollection I_variants = new IntRandomCollection(2);
-    public IntRandomCollection L_variants = new IntRandomCollection(4);
-    public IntRandomCollection J_variants = new IntRandomCollection(4);
     public IntRandomCollection O_variants = new IntRandomCollection(1);
+    public IntRandomCollection T_variants = new IntRandomCollection(4);
     public IntRandomCollection S_variants = new IntRandomCollection(2);
     public IntRandomCollection Z_variants = new IntRandomCollection(2);
-    public IntRandomCollection T_variants = new IntRandomCollection(4);
+    public IntRandomCollection J_variants = new IntRandomCollection(4);
+    public IntRandomCollection L_variants = new IntRandomCollection(4);
 
     //----------------------------------------------------------------------------------------------------
     public Tetromino GetRandomTetromino() 
     {
-        int tetrominoTypesIndex = tetrominoTypes.GetRandomInt();
-        int variantIndex;
-        int width;
-        int position;
-        Tetromino tetromino;
+        int tetrominoShapeIndex = _GetRandomShapeIndex();
+        int variantIndex = _GetRandomVariantIndex(tetrominoShapeIndex);
+        Tetromino tetromino = tetrominoCollection.GetTetromino(tetrominoShapeIndex, variantIndex);
+        int position = _GetRandomPosition(tetromino.Width);
         
-        switch (tetrominoTypesIndex)
+        tetromino.Move(new Vector3Int(position, 0, 0));
+        Debug.Log("Tetromino: " + tetrominoShapeIndex + " Variant: " + variantIndex + " Position: " + position + " Width: " + tetromino.Width);
+        return tetromino;
+    }
+
+    //----------------------------------------------------------------------------------------------------
+    private int _GetRandomShapeIndex()
+    {
+        return tetrominoShape.GetRandomInt();     
+    }
+
+    //----------------------------------------------------------------------------------------------------
+    private int _GetRandomVariantIndex(int shapeIndex)
+    {
+        switch (shapeIndex)
         {
             case 0:
-                variantIndex = I_variants.GetRandomInt();
-                break;
+                return I_variants.GetRandomInt();
             case 1:
-                variantIndex = O_variants.GetRandomInt();
-                break;
+                return O_variants.GetRandomInt();
             case 2:
-                variantIndex = T_variants.GetRandomInt();
-                break;
+                return T_variants.GetRandomInt();
             case 3:
-                variantIndex = S_variants.GetRandomInt();
-                break;
+                return S_variants.GetRandomInt();
             case 4:
-                variantIndex = Z_variants.GetRandomInt();
-                break;
+                return Z_variants.GetRandomInt();
             case 5:
-                variantIndex = J_variants.GetRandomInt();
-                break;
+                return J_variants.GetRandomInt();
             case 6:
-                variantIndex = L_variants.GetRandomInt();
-                break;
+                return L_variants.GetRandomInt();
             default:
-                return null;
+                return -1;
         }
+    }
 
-        width = tetrominoCollection.GetTetromino(tetrominoTypesIndex, variantIndex).Width;
-
+    //----------------------------------------------------------------------------------------------------
+    private int _GetRandomPosition(int width)
+    {
         switch (width)
         {
             case 1:
-                position = width1Positions.GetRandomInt();
-                break;
+                return width1Positions.GetRandomInt();
             case 2:
-                position = width2Positions.GetRandomInt();
-                break;
+                return width2Positions.GetRandomInt();
             case 3:
-                position = width3Positions.GetRandomInt();
-                break;
+                return width3Positions.GetRandomInt();
             case 4:
-                position = width4Positions.GetRandomInt();
-                break;
+                return width4Positions.GetRandomInt();
             default:
-                return null;
+                return -1;
         }
-
-        tetromino = tetrominoCollection.GetTetromino(tetrominoTypesIndex, variantIndex);
-        tetromino.Move(new Vector3Int(position, 0, 0));
-        Debug.Log("Tetromino: " + tetrominoTypesIndex + " Variant: " + variantIndex + " Position: " + position);
-        return tetromino;
     }
 
 }

@@ -38,6 +38,54 @@ TextureImporter:
   - first:
       213: 5032100089222261059
     second: TETRACARDS_SPRITES_simple_11
+  - first:
+      213: 1450859493138938357
+    second: TETRACARDS_SPRITES_simple_12
+  - first:
+      213: 5913716723270527650
+    second: TETRACARDS_SPRITES_simple_13
+  - first:
+      213: 3657003151443409082
+    second: TETRACARDS_SPRITES_simple_14
+  - first:
+      213: -2977768637675443549
+    second: TETRACARDS_SPRITES_simple_15
+  - first:
+      213: 9205160542680086659
+    second: TETRACARDS_SPRITES_simple_16
+  - first:
+      213: 2282979402577415769
+    second: TETRACARDS_SPRITES_simple_17
+  - first:
+      213: -285021789394385438
+    second: TETRACARDS_SPRITES_simple_18
+  - first:
+      213: -2540510636331009359
+    second: TETRACARDS_SPRITES_simple_19
+  - first:
+      213: 396410903162861027
+    second: TETRACARDS_SPRITES_simple_20
+  - first:
+      213: -5096487431388738632
+    second: TETRACARDS_SPRITES_simple_21
+  - first:
+      213: -9222122679384837357
+    second: TETRACARDS_SPRITES_simple_22
+  - first:
+      213: 3165068145917430394
+    second: TETRACARDS_SPRITES_simple_23
+  - first:
+      213: 5004553995715167452
+    second: TETRACARDS_SPRITES_simple_24
+  - first:
+      213: 481659381854593748
+    second: TETRACARDS_SPRITES_simple_25
+  - first:
+      213: 1347996611262054380
+    second: TETRACARDS_SPRITES_simple_26
+  - first:
+      213: -1041671769977334579
+    second: TETRACARDS_SPRITES_simple_27
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -78,11 +126,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -143,11 +191,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 16
-        height: 16
+        y: 9
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +211,12 @@ TextureImporter:
       name: TETRACARDS_SPRITES_simple_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 9
+        y: 9
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +232,12 @@ TextureImporter:
       name: TETRACARDS_SPRITES_simple_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
+        x: 18
+        y: 9
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +253,12 @@ TextureImporter:
       name: TETRACARDS_SPRITES_simple_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
+        x: 27
+        y: 9
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,11 +275,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +295,12 @@ TextureImporter:
       name: TETRACARDS_SPRITES_simple_5
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 9
+        y: 0
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +316,12 @@ TextureImporter:
       name: TETRACARDS_SPRITES_simple_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
+        x: 18
+        y: 0
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,111 +329,6 @@ TextureImporter:
       bones: []
       spriteID: 394a2c51fbfd1e460800000000000000
       internalID: 7269337285349516435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TETRACARDS_SPRITES_simple_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32c7580691a553dd0800000000000000
-      internalID: -2506998552521769949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TETRACARDS_SPRITES_simple_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3185d192c93bde550800000000000000
-      internalID: 6191802545990359059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TETRACARDS_SPRITES_simple_9
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21a40055d3af43290800000000000000
-      internalID: -7911423504057087470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TETRACARDS_SPRITES_simple_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f05854735e7b64970800000000000000
-      internalID: 8738874322061722895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TETRACARDS_SPRITES_simple_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 349ed44be5c95d540800000000000000
-      internalID: 5032100089222261059
       vertices: []
       indices: 
       edges: []

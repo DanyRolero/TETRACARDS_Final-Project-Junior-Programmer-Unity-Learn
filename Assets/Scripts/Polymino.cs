@@ -2,42 +2,47 @@ using UnityEngine;
 
 public abstract class Polymino
 {
-    private Vector3Int[] _units;
+    private Vector3Int[] _cells;
+
+    public Vector3Int[] Cells
+    {
+        get { return _cells; }
+    }
     public Vector3Int[] Units
     {
-        get { return _units; }
+        get { return _cells; }
     }
-    public int Length => _units.Length;
+    public int Length => _cells.Length;
     public int MinX => _MinX();
     public int MaxX => _MaxX();
-    public int Width => MaxX - MinX;
+    public int Width => MaxX - MinX + 1;
     public int MinY => _MinY();
     public int MaxY => _MaxY();
-    public int Height => MaxY - MinY;
+    public int Height => MaxY - MinY + 1;
     public int MinZ => _MinZ();
     public int MaxZ => _MaxZ();
-    public int Depth => MaxZ - MinZ;
+    public int Depth => MaxZ - MinZ + 1;
 
 
-    public Vector3Int this[int index] => _units[index];
+    public Vector3Int this[int index] => _cells[index];
 
     //----------------------------------------------------------------
     public Polymino(int amountOfUnits)
     {
-        _units = new Vector3Int[amountOfUnits];
+        _cells = new Vector3Int[amountOfUnits];
     }
 
     //----------------------------------------------------------------
     public void SetUnit(int index, Vector3Int unit)
     {
-        _units[index] = unit;
+        _cells[index] = unit;
     }
 
     //----------------------------------------------------------------
     private int _MinX() 
     {
-        int minX = _units[0].x;
-        foreach (Vector3Int unit in _units)
+        int minX = _cells[0].x;
+        foreach (Vector3Int unit in _cells)
         {
             if (unit.x < minX)
             {
@@ -50,8 +55,8 @@ public abstract class Polymino
     //----------------------------------------------------------------
     private int _MaxX()
     {
-        int maxX = _units[0].x;
-        foreach (Vector3Int unit in _units)
+        int maxX = _cells[0].x;
+        foreach (Vector3Int unit in _cells)
         {
             if (unit.x > maxX)
             {
@@ -64,8 +69,8 @@ public abstract class Polymino
     //----------------------------------------------------------------
     private int _MinY() 
     {
-        int minY = _units[0].y;
-        foreach (Vector3Int unit in _units)
+        int minY = _cells[0].y;
+        foreach (Vector3Int unit in _cells)
         {
             if (unit.y < minY)
             {
@@ -78,8 +83,8 @@ public abstract class Polymino
     //----------------------------------------------------------------
     private int _MaxY()
     {
-        int maxY = _units[0].y;
-        foreach (Vector3Int unit in _units)
+        int maxY = _cells[0].y;
+        foreach (Vector3Int unit in _cells)
         {
             if (unit.y > maxY)
             {
@@ -92,8 +97,8 @@ public abstract class Polymino
     //----------------------------------------------------------------
     private int _MinZ() 
     {
-        int minZ = _units[0].z;
-        foreach (Vector3Int unit in _units)
+        int minZ = _cells[0].z;
+        foreach (Vector3Int unit in _cells)
         {
             if (unit.z < minZ)
             {
@@ -106,8 +111,8 @@ public abstract class Polymino
     //----------------------------------------------------------------
     private int _MaxZ()
     {
-        int maxZ = _units[0].z;
-        foreach (Vector3Int unit in _units)
+        int maxZ = _cells[0].z;
+        foreach (Vector3Int unit in _cells)
         {
             if (unit.z > maxZ)
             {
@@ -120,9 +125,9 @@ public abstract class Polymino
     //----------------------------------------------------------------
     public void Move(Vector3Int direction)
     {
-        for (int i = 0; i < _units.Length; i++)
+        for (int i = 0; i < _cells.Length; i++)
         {
-            _units[i] += direction;
+            _cells[i] += direction;
         }
     }
 

@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class Tetromino : Polymino
 {
-    public TetrominoTypeShape typeShape { get; private set; }
-    public Tetromino(TetrominoTypeShape typeShape) : base(4)
-    {
-        
-    }
+    public Tetromino() : base(4) {}
 }
