@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntRandomCollection
+public class CyclicUniqueRandomIntCollection
 {
     private List<int> _intCollection = new List<int>();
     private List<int> _copyIntCollection;
 
     //----------------------------------------------------------------
-    public IntRandomCollection(int min, int max)
+    public CyclicUniqueRandomIntCollection(int max, int min = 0)
     {
         for (int i = min; i <= max; i++)
         {
@@ -16,16 +16,8 @@ public class IntRandomCollection
         _copyIntCollection = new List<int>(_intCollection);
     }
 
-    public IntRandomCollection(int max) {
-        for (int i = 0; i < max; i++)
-        {
-            _intCollection.Add(i);
-        }
-        _copyIntCollection = new List<int>(_intCollection);
-    }
-
     //----------------------------------------------------------------
-    private void _ResetCopyCollection()
+    private void ResetCopyCollection()
     {
         _copyIntCollection = new List<int>(_intCollection);
     }
@@ -35,7 +27,7 @@ public class IntRandomCollection
     {
         if (_copyIntCollection.Count == 0)
         {
-            _ResetCopyCollection();
+            ResetCopyCollection();
         }
         int randomIndex = Random.Range(0, _copyIntCollection.Count);
         int randomInt = _copyIntCollection[randomIndex];

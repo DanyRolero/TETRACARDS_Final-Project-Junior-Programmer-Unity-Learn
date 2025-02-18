@@ -7,13 +7,14 @@ public class BoardManager : MonoBehaviour
 {
    public List<Tile> tiles;
    public Tilemap tilemap;
+   public GameObject grid;
 
-    private void Start() {
-        TetrominoColRandomManager tetrominoColRandomManager = new TetrominoColRandomManager();
-        Tetromino tetromino = tetrominoColRandomManager.GetRandomTetromino();
-        setTetromino(tetromino);
-
+    private void Start() 
+    {
         tilemap.SetTile(new Vector3Int(0, 0, 0), tiles[0]);
+        int columnsInBoard = (int)grid.GetComponent<SpriteRenderer>().size.x;
+
+        RandomNonRepeatedCycleTetromino randomNonRepeatedCycleTetromino = new RandomNonRepeatedCycleTetromino(columnsInBoard);
     }
 
         public void setTetromino(Tetromino tetromino)

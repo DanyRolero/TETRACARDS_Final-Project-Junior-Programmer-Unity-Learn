@@ -2,13 +2,10 @@ using UnityEngine;
 
 public abstract class Polymino
 {
-    private Vector3Int[] _cells;
+    protected Vector3Int[] _cells;
+
 
     public Vector3Int[] Cells
-    {
-        get { return _cells; }
-    }
-    public Vector3Int[] Units
     {
         get { return _cells; }
     }
@@ -33,9 +30,9 @@ public abstract class Polymino
     }
 
     //----------------------------------------------------------------
-    public void SetUnit(int index, Vector3Int unit)
+    private void SetUnit(int index, Vector3Int cell)
     {
-        _cells[index] = unit;
+        _cells[index] = cell;
     }
 
     //----------------------------------------------------------------
