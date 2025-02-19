@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CyclicUniqueRandomIntCollection
+public class SuffleBagIndexes
 {
     private List<int> _intCollection = new List<int>();
     private List<int> _copyIntCollection;
 
     //----------------------------------------------------------------
-    public CyclicUniqueRandomIntCollection(int max, int min = 0)
+    public SuffleBagIndexes(int length)
     {
-        for (int i = min; i <= max; i++)
+        for (int i = 0; i <= length; i++)
         {
             _intCollection.Add(i);
         }
@@ -23,12 +23,13 @@ public class CyclicUniqueRandomIntCollection
     }
     
     //----------------------------------------------------------------
-    public int GetRandomInt()
+    public int GetRandomIndex()
     {
         if (_copyIntCollection.Count == 0)
         {
             ResetCopyCollection();
         }
+        
         int randomIndex = Random.Range(0, _copyIntCollection.Count);
         int randomInt = _copyIntCollection[randomIndex];
         _copyIntCollection.RemoveAt(randomIndex);
