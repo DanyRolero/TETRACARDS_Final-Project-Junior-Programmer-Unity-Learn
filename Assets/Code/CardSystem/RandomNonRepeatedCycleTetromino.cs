@@ -48,9 +48,11 @@ public class RandomNonRepeatedCycleTetromino
     {
         int shapeIndex = GetRandomShapeIndex();
         int variantIndex = GetRandomVariantIndex(shapeIndex);
-        int position = GetRandomPosition(tetrominoCollection.GetTetromino(TetrominoTypeShape.GetTetrominoTypeShape(shapeIndex), variantIndex).Width);
+        Tetromino tetromino = tetrominoCollection.GetTetromino(shapeIndex, variantIndex);
+        int position = GetRandomPosition(tetromino.Width);
+        tetromino.Move(new Vector3Int(position, 0, 0));
 
-        return tetrominoCollection.GetTetromino(TetrominoTypeShape.GetTetrominoTypeShape(shapeIndex), variantIndex).Clone(position);
+        return tetromino;   
     }
 
     

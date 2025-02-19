@@ -53,6 +53,11 @@ public class TetrominoCollection
         return tetrominosByTypeShape[typeShape][index];
     }
 
+    public Tetromino GetTetromino(int typeShapeIndex, int index)
+    {
+        return tetrominosByTypeShape[(TetrominoTypeShape)typeShapeIndex][index];
+    }
+
     //----------------------------------------------------------------
     private void ClasificateByTypeShape()
     {
