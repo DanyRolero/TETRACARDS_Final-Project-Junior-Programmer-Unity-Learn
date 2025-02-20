@@ -1,4 +1,4 @@
-public enum TetrominoTypeShape
+public enum IdShape
 {
     I,
     O,
