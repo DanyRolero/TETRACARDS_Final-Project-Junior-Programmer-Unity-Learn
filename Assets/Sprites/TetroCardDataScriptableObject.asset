@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d337e4dec3c24d67bdd8379f1c4b624, type: 3}
-  m_Name: TetroCard_01
+  m_Name: TetroCardDataScriptableObject
   m_EditorClassIdentifier: 
-  sprite: {fileID: -5399362992581994428, guid: 103308166b2b34e7599cf637a82ea83e, type: 3}
+  sprite: {fileID: 0}

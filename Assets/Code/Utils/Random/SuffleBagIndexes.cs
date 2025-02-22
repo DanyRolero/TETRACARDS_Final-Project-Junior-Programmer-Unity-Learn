@@ -7,9 +7,11 @@ public class SuffleBagIndexes
     private List<int> _copyIntCollection;
 
     //----------------------------------------------------------------
+    public SuffleBagIndexes() {}
+    //----------------------------------------------------------------
     public SuffleBagIndexes(int length)
     {
-        for (int i = 0; i <= length; i++)
+        for (int i = 0; i < length; i++)
         {
             _intCollection.Add(i);
         }
@@ -34,5 +36,11 @@ public class SuffleBagIndexes
         int randomInt = _copyIntCollection[randomIndex];
         _copyIntCollection.RemoveAt(randomIndex);
         return randomInt;
+    }
+
+    public void AddIndexToBag(int index)
+    {
+        _intCollection.Add(index);
+        ResetCopyCollection();
     }
 }

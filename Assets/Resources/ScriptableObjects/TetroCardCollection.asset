@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d337e4dec3c24d67bdd8379f1c4b624, type: 3}
+  m_Name: TetroCardCollection
+  m_EditorClassIdentifier: 
+  images:
+  - {fileID: 21300000, guid: 8c388b42b49b742248215b5603122279, type: 3}
+  - {fileID: 21300000, guid: e7934ae6f7f3c4deb92f5bf84cca33f4, type: 3}
+  - {fileID: 21300000, guid: 1ce80a56ecd8c4c02b727d42d6de5aef, type: 3}
+  - {fileID: 21300000, guid: 6f3d9de3fafb84fc7b154981d5c65d32, type: 3}
+  - {fileID: 21300000, guid: 342a24803d1af451e9abb1a1b88c9f73, type: 3}
+  - {fileID: 21300000, guid: 794c15cea1f2941ebb7e768933d4add0, type: 3}
+  - {fileID: 21300000, guid: daa4488b9f8b64ea78ab476155301766, type: 3}
+  - {fileID: 21300000, guid: b6b371fd45ed14ffc97ac7fc1ba70000, type: 3}
+  - {fileID: 21300000, guid: 45a3ccd7efb7b4f4d90acff126b1bf42, type: 3}
+  - {fileID: 21300000, guid: 732edcd2e2bc24ac68f30fa23d17fb6c, type: 3}
+  - {fileID: 21300000, guid: b75bd6f6669904ef19a7afc45f35ad91, type: 3}
+  - {fileID: 21300000, guid: cf5c229468a764a929b0c0fb4dc3e1bd, type: 3}
+  - {fileID: 21300000, guid: a3563169500b346c083848948c38bf73, type: 3}
+  - {fileID: 21300000, guid: e4ee1dd2e4f204e4c9039ab31d799da1, type: 3}
+  - {fileID: 21300000, guid: 15a053603f2e54fdaaf2cc0a7d3481b5, type: 3}
+  - {fileID: 21300000, guid: 0ecde3d7bb86a4f93a7a479efd66024f, type: 3}
+  - {fileID: 21300000, guid: c8c5278c8cf7546518bcabb6cdf7fa6f, type: 3}
+  - {fileID: 21300000, guid: ba8322f8e6d704a1796422669e8713d7, type: 3}
+  - {fileID: 21300000, guid: 3bb9fbd0f193c445e8df7c0553eafe6d, type: 3}
