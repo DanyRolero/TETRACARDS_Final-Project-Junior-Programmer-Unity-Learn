@@ -1,16 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-class RandomizerTetrominoCollection
+class RandomizerTetrominoCollection : TetrominoCollection, ITetrominoProvider
 {
-    private TetrominoCollection tetrominoCollection;
     private Dictionary<IdShape, SuffleBagIndexes> variantsByShapeBags;
     private SuffleBagIndexes shapesBag;
-    public RandomizerTetrominoCollection(TetrominoCollection collection)
+    public RandomizerTetrominoCollection()
     {
-        tetrominoCollection = collection;
         InitializeVariantsByShapeBags();
-        InitializeShapesBag();
-        
+        InitializeShapesBag();   
     }
 
     //----------------------------------------------------------------
@@ -18,9 +15,9 @@ class RandomizerTetrominoCollection
     {
         variantsByShapeBags = new Dictionary<IdShape, SuffleBagIndexes>();
 
-        foreach (IdShape shape in tetrominoCollection.tetrominosByShape.Keys)
+        foreach (IdShape shape in tetrominosByShape.Keys)
         {
-            variantsByShapeBags.Add(shape, new SuffleBagIndexes(tetrominoCollection.tetrominosByShape[shape].Count));
+            variantsByShapeBags.Add(shape, new SuffleBagIndexes(tetrominosByShape[shape].Count));
         }
 
     }
@@ -28,7 +25,7 @@ class RandomizerTetrominoCollection
     //----------------------------------------------------------------
     private void InitializeShapesBag()
     {
-        shapesBag = new SuffleBagIndexes(tetrominoCollection.tetrominosByShape.Count);
+        shapesBag = new SuffleBagIndexes(tetrominosByShape.Count);
     }
 
     //----------------------------------------------------------------
@@ -37,7 +34,12 @@ class RandomizerTetrominoCollection
         int randomShapeIndex = shapesBag.GetRandomIndex();
         int randomVariantIndex = variantsByShapeBags[(IdShape)randomShapeIndex].GetRandomIndex();
         Debug.Log("Random shape index: " + randomShapeIndex + " Random variant index: " + randomVariantIndex);
-        return tetrominoCollection.tetrominosByShape[(IdShape)randomShapeIndex][randomVariantIndex];
+        return tetrominosByShape[(IdShape)randomShapeIndex][randomVariantIndex];
     }
 
+    //----------------------------------------------------------------
+    public Tetromino GetTetromino()
+    {
+        return GetRandomTetromino();
+    }
 }

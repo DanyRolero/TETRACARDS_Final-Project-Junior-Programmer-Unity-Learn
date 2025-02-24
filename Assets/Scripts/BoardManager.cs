@@ -13,8 +13,6 @@ public class BoardManager : MonoBehaviour
     {
         tilemap.SetTile(new Vector3Int(0, 0, 0), tiles[0]);
         int columnsInBoard = (int)grid.GetComponent<SpriteRenderer>().size.x;
-        TetrominoCollection tetrominoCollection = new TetrominoCollection();
-        RandomizerTetrominoCollection randomizer = new RandomizerTetrominoCollection(tetrominoCollection);
     }
 
         public void setTetromino(Tetromino tetromino)
