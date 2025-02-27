@@ -17,8 +17,8 @@ public class TetrominoCollection
     {
         tetrominos = new Tetromino[19];
         
-        tetrominos[0] = new Tetromino(0, 0, 0, 1, 0, 2, 0, 3, IdShape.I);
-        tetrominos[1] = new Tetromino(0, 0, 1, 0, 2, 0, 3, 0, IdShape.I);
+        tetrominos[0] = new Tetromino(0, 0, 1, 0, 2, 0, 3, 0, IdShape.I);
+        tetrominos[1] = new Tetromino(0, 0, 0, 1, 0, 2, 0, 3, IdShape.I);
 
         tetrominos[2] = new Tetromino(0, 0, 1, 0, 0, 1, 1, 1, IdShape.O);
 

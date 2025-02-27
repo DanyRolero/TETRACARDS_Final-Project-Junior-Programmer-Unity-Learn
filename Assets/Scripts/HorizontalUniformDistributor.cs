@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 //Añadir a un gameobject con hijos que se quieran distribuir uniformemente en el eje x.
-
 public class HorizontalUniformDistributor : MonoBehaviour
 {
     public float gap;

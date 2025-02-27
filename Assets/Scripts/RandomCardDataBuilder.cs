@@ -43,7 +43,7 @@ public class RandomCardDataBuilder : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    private void GetNextRandomCardData() 
+    public CardData GetNextRandomCardData() 
     {
         currentTetromino = randomTetrominoProvider.GetTetromino().Clone();
         tetrominoId = currentTetromino.Id;
@@ -51,6 +51,8 @@ public class RandomCardDataBuilder : MonoBehaviour
         tileIndex = (int)currentTetromino.IdShape;
         xPosition = xPositionsByTetrominoWidth[currentTetromino.Width].GetRandomIndex();
         currentTetromino.Move(new Vector3Int(xPosition, 0, 0));
-        idOrder = currentTetromino.Width * 10 + xPosition;
+        idOrder = currentTetromino.Width + xPosition * 10;
+
+        return new CardData(currentTetromino, xPosition, idOrder, tiles[tileIndex], cardImages[cardImageIndex]);
     }
 }
