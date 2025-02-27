@@ -45,7 +45,6 @@ public class HorizontalUniformDistributor : MonoBehaviour
 
 
     //--------------------------------------------------------------------------------
-    // Solucionar problema de que la posicion de los items se pasan del width del rectArea
     private void UpdateListPositions()
     {
         float currentXPosition = subrectArea.x + item.GetComponent<Transform>().localScale.x / 2 + gap;

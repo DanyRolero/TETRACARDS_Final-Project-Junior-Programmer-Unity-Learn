@@ -505,88 +505,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &481428899
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 481428900}
-  - component: {fileID: 481428901}
-  m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &481428900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481428899}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_Children: []
-  m_Father: {fileID: 929809556}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &481428901
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481428899}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8c388b42b49b742248215b5603122279, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &599810141
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,37 +685,6 @@ Transform:
   - {fileID: 1185769275}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &929809555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 929809556}
-  m_Layer: 0
-  m_Name: TetroCard
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &929809556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929809555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 481428900}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990104251
 GameObject:
@@ -1226,6 +1113,7 @@ GameObject:
   - component: {fileID: 1565430300}
   - component: {fileID: 1565430301}
   - component: {fileID: 1565430302}
+  - component: {fileID: 1565430303}
   m_Layer: 0
   m_Name: CardsHandManager
   m_TagString: Untagged
@@ -1259,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6378a9adc90b7469eb9a4f88dac911a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gap: 0.25
+  gap: 1.5
   alignment: 1
   rectArea:
     serializedVersion: 2
@@ -1268,7 +1156,7 @@ MonoBehaviour:
     width: 36
     height: 4.5
   container: {fileID: 1565430299}
-  item: {fileID: 600216609053719101, guid: aa35067b2ae784d31b6620440d32780e, type: 3}
+  item: {fileID: 3623767881891307263, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
 --- !u!114 &1565430302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,7 +1169,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d87822c19ff414b8a35dd12c96a884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 600216609053719101, guid: aa35067b2ae784d31b6620440d32780e, type: 3}
+  cardPrefab: {fileID: 3623767881891307263, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
+--- !u!114 &1565430303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565430299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d55aceb17024f8b981d3c41b3fee9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridBoard: {fileID: 2093003129}
+  cardImages:
+  - {fileID: 21300000, guid: 8c388b42b49b742248215b5603122279, type: 3}
+  - {fileID: 21300000, guid: e7934ae6f7f3c4deb92f5bf84cca33f4, type: 3}
+  - {fileID: 21300000, guid: 1ce80a56ecd8c4c02b727d42d6de5aef, type: 3}
+  - {fileID: 21300000, guid: 6f3d9de3fafb84fc7b154981d5c65d32, type: 3}
+  - {fileID: 21300000, guid: 342a24803d1af451e9abb1a1b88c9f73, type: 3}
+  - {fileID: 21300000, guid: 794c15cea1f2941ebb7e768933d4add0, type: 3}
+  - {fileID: 21300000, guid: daa4488b9f8b64ea78ab476155301766, type: 3}
+  - {fileID: 21300000, guid: b6b371fd45ed14ffc97ac7fc1ba70000, type: 3}
+  - {fileID: 21300000, guid: 45a3ccd7efb7b4f4d90acff126b1bf42, type: 3}
+  - {fileID: 21300000, guid: 732edcd2e2bc24ac68f30fa23d17fb6c, type: 3}
+  - {fileID: 21300000, guid: b75bd6f6669904ef19a7afc45f35ad91, type: 3}
+  - {fileID: 21300000, guid: cf5c229468a764a929b0c0fb4dc3e1bd, type: 3}
+  - {fileID: 21300000, guid: a3563169500b346c083848948c38bf73, type: 3}
+  - {fileID: 21300000, guid: e4ee1dd2e4f204e4c9039ab31d799da1, type: 3}
+  - {fileID: 21300000, guid: 15a053603f2e54fdaaf2cc0a7d3481b5, type: 3}
+  - {fileID: 21300000, guid: 0ecde3d7bb86a4f93a7a479efd66024f, type: 3}
+  - {fileID: 21300000, guid: c8c5278c8cf7546518bcabb6cdf7fa6f, type: 3}
+  - {fileID: 21300000, guid: ba8322f8e6d704a1796422669e8713d7, type: 3}
+  - {fileID: 21300000, guid: 3bb9fbd0f193c445e8df7c0553eafe6d, type: 3}
+  tiles:
+  - {fileID: 11400000, guid: 19c6a91717de345318dc9a5939622164, type: 2}
+  - {fileID: 11400000, guid: 5528b847279cb49ee88c779a53e858d4, type: 2}
+  - {fileID: 11400000, guid: deaeb297c1c4442bdb0fb13fe9efbe25, type: 2}
+  - {fileID: 11400000, guid: d569fd0fd1e724c6383038bb3830b613, type: 2}
+  - {fileID: 11400000, guid: 00333eb0c281d490fbe5fa8461049db7, type: 2}
+  - {fileID: 11400000, guid: c520b453d84024a6ba5772704137d20f, type: 2}
+  - {fileID: 11400000, guid: 55ac88e6bbb4d4ddc9cbf2bd919fba85, type: 2}
+  columnsOnGridBoard: 0
+  tetrominoId: 0
+  cardImageIndex: 0
+  tileIndex: 0
+  xPosition: 0
+  idOrder: 0
 --- !u!1 &1613432663
 GameObject:
   m_ObjectHideFlags: 0

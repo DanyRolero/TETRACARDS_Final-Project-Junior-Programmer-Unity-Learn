@@ -129,4 +129,12 @@ public class Tetromino
         }
     }
 
+    //----------------------------------------------------------------
+    public Tetromino Clone()
+    {
+        Tetromino clone = new Tetromino(Cells[0].x, Cells[0].y, Cells[1].x, Cells[1].y, Cells[2].x, Cells[2].y, Cells[3].x, Cells[3].y, IdShape);
+        clone.Id = Id;
+        return clone;
+    }
+
 }

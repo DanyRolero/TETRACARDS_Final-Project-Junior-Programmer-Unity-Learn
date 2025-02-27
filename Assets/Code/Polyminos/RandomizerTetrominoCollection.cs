@@ -33,7 +33,6 @@ class RandomizerTetrominoCollection : TetrominoCollection, ITetrominoProvider
     {
         int randomShapeIndex = shapesBag.GetRandomIndex();
         int randomVariantIndex = variantsByShapeBags[(IdShape)randomShapeIndex].GetRandomIndex();
-        Debug.Log("Random shape index: " + randomShapeIndex + " Random variant index: " + randomVariantIndex);
         return tetrominosByShape[(IdShape)randomShapeIndex][randomVariantIndex];
     }
 
@@ -41,5 +40,11 @@ class RandomizerTetrominoCollection : TetrominoCollection, ITetrominoProvider
     public Tetromino GetTetromino()
     {
         return GetRandomTetromino();
+    }
+
+    //----------------------------------------------------------------
+    public Tetromino[] GetTetrominos()
+    {
+        return this.tetrominos;
     }
 }
