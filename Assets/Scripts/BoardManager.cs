@@ -8,12 +8,13 @@ public class BoardManager : MonoBehaviour
     public List<Tile> tiles;
     public Tilemap mainBoard;
     public Tilemap ghostBoard;
+    public GameObject grid;
     public int yOrigin;
 
     private void Start()
     {
-        yOrigin = mainBoard.size.y - 1;
-        mainBoard.SetTile(new Vector3Int(0, 14, 0), tiles[0]);
+        yOrigin = (int)grid.GetComponent<SpriteRenderer>().size.y;
+        //mainBoard.SetTile(new Vector3Int(0, yOrigin, 0), tiles[0]);
         //Debug.Log(IsCellOccupied(new Vector3Int(0, 0, 0)));   
     }
 
@@ -55,19 +56,50 @@ public class BoardManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    private void TrackHighestValidPosition(Tetromino tetromino)
+    private Tetromino TrackHighestValidPosition(Tetromino tetromino)
     {
+        ClearGhostBoard();
         Tetromino clon = tetromino.Clone();
-        clon.Move(new Vector3Int(0, yOrigin, 0));
+        clon.Move(new Vector3Int(0, 0 + tetromino.Height, 0));
+
+        while(IsTetrominoColliding(clon))
+        {
+            clon.Move(new Vector3Int(0, 1, 0));
+        }
+
+        return clon;
     }
 
     //--------------------------------------------------------------------------------
-    public void setTetromino(Tetromino tetromino)
+    private void DrawGhostTetromino(Tetromino tetromino)
     {
-
         foreach (Vector3Int cell in tetromino.Cells)
         {
-            mainBoard.SetTile(cell, tiles[1]);
+            ghostBoard.SetTile(cell, tiles[9]);
         }
     }
+
+    //--------------------------------------------------------------------------------
+    public void ClearGhostBoard()
+    {
+        ghostBoard.ClearAllTiles();
+    }
+
+    //--------------------------------------------------------------------------------
+    public Tetromino PreviewTetrominoInBoard(Tetromino tetromino)
+    {
+        Tetromino ghostTetromino = TrackHighestValidPosition(tetromino);
+        DrawGhostTetromino(ghostTetromino);
+        return ghostTetromino;
+    }
+
+    //--------------------------------------------------------------------------------
+    public void PlaceTetrominoInBoard(Tetromino tetromino, Tile tile)
+    {
+        foreach (Vector3Int cell in tetromino.Cells)
+        {
+            mainBoard.SetTile(cell, tile);
+        }
+    }
+
 }

@@ -37,7 +37,7 @@ public class RandomCardDataBuilder : MonoBehaviour
         {
             if (!xPositionsByTetrominoWidth.ContainsKey(tetromino.Width))
             {
-                xPositionsByTetrominoWidth.Add(tetromino.Width, new SuffleBagIndexes(columnsOnGridBoard - tetromino.Width));
+                xPositionsByTetrominoWidth.Add(tetromino.Width, new SuffleBagIndexes(columnsOnGridBoard - tetromino.Width + 1));
             }
         }
     }

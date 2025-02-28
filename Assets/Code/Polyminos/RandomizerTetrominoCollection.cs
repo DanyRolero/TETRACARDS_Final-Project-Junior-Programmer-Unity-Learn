@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 class RandomizerTetrominoCollection : TetrominoCollection, ITetrominoProvider
 {
@@ -32,8 +33,8 @@ class RandomizerTetrominoCollection : TetrominoCollection, ITetrominoProvider
     public Tetromino GetRandomTetromino()
     {
         int randomShapeIndex = shapesBag.GetRandomIndex();
-        int randomVariantIndex = variantsByShapeBags[(IdShape)randomShapeIndex].GetRandomIndex();
-        return tetrominosByShape[(IdShape)randomShapeIndex][randomVariantIndex];
+        int randomVariantIndex = variantsByShapeBags.ElementAt(randomShapeIndex).Value.GetRandomIndex();
+        return tetrominosByShape[variantsByShapeBags.ElementAt(randomShapeIndex).Key][randomVariantIndex];
     }
 
     //----------------------------------------------------------------
