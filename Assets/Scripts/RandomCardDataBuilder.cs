@@ -1,43 +1,32 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using System;
 
 public class RandomCardDataBuilder : MonoBehaviour
 {
-    public ITetrominoProvider randomTetrominoProvider;
-    public GameObject gridBoard;
-    public Dictionary<int, SuffleBagIndexes> xPositionsByTetrominoWidth;
+    public IRandomPolyminoProvider randomPolyminoProvider;
+    public Dictionary<int, SuffleBagIndexes> xPositionsByPolyminoWidth;
     public Sprite[] cardImages;
     public Tile[] tiles;
-    public int columnsOnGridBoard;
-    public Tetromino currentTetromino;
-    public int tetrominoId;
-    public int cardImageIndex;
-    public int tileIndex;
-    public int xPosition;
-    public int idOrder;
-
- 
+    public Polymino currentPolymino;
 
     void Start()
     {
-        randomTetrominoProvider = new RandomizerTetrominoCollection();
-        InitializeXPositionByTetrominosWidth();
-        GetNextRandomCardData();
+        randomPolyminoProvider  = new RandomFixedTetrominoCollection();
+        Initialize();
     }
 
-    private void InitializeXPositionByTetrominosWidth()
+    private void Initialize()
     {
-        xPositionsByTetrominoWidth = new Dictionary<int, SuffleBagIndexes>();
-        columnsOnGridBoard = (int)gridBoard.GetComponent<SpriteRenderer>().size.x;
+        int columnsOnGridBoard = (int)GameObject.Find("GridBoard").GetComponent<SpriteRenderer>().size.x;
+        
+        xPositionsByPolyminoWidth = new Dictionary<int, SuffleBagIndexes>();
 
-        foreach (Tetromino tetromino in randomTetrominoProvider.GetTetrominos())
+        foreach (Polymino polymino in randomPolyminoProvider.GetPolyminoes())
         {
-            if (!xPositionsByTetrominoWidth.ContainsKey(tetromino.Width))
+            if (!xPositionsByPolyminoWidth.ContainsKey(polymino.Width))
             {
-                xPositionsByTetrominoWidth.Add(tetromino.Width, new SuffleBagIndexes(columnsOnGridBoard - tetromino.Width + 1));
+                xPositionsByPolyminoWidth.Add(polymino.Width, new SuffleBagIndexes(columnsOnGridBoard - polymino.Width + 1));
             }
         }
     }
@@ -45,14 +34,13 @@ public class RandomCardDataBuilder : MonoBehaviour
     //--------------------------------------------------------------------------------
     public CardData GetNextRandomCardData() 
     {
-        currentTetromino = randomTetrominoProvider.GetTetromino().Clone();
-        tetrominoId = currentTetromino.Id;
-        cardImageIndex = currentTetromino.Id;
-        tileIndex = (int)currentTetromino.IdShape;
-        xPosition = xPositionsByTetrominoWidth[currentTetromino.Width].GetRandomIndex();
-        currentTetromino.Move(new Vector3Int(xPosition, 0, 0));
-        idOrder = currentTetromino.Width + xPosition * 10;
+        Polymino currentPolymino = randomPolyminoProvider.GetNextRandomPolymino().Clone();
+        int cardImageIndex = currentPolymino.Id;
+        int tileIndex = (int)currentPolymino.IdShape;
+        int xPosition = xPositionsByPolyminoWidth[currentPolymino.Width].GetRandomIndex();
+        currentPolymino.Move(new Vector3Int(xPosition, 0, 0));
+        int idOrder = currentPolymino.Width + xPosition * 10;
 
-        return new CardData(currentTetromino, xPosition, idOrder, tiles[tileIndex], cardImages[cardImageIndex]);
+        return new CardData(currentPolymino, xPosition, idOrder, tiles[tileIndex], cardImages[cardImageIndex]);
     }
 }

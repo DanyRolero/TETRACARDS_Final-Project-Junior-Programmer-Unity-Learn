@@ -77,6 +77,7 @@ public class CardHandManager : MonoBehaviour
         cardDataUpdater.UpdateCardData(cardData);
     }
 
+    //--------------------------------------------------------------------------------
     private void ReorderInLayer()
     {
         int childCount = gameObject.transform.childCount;

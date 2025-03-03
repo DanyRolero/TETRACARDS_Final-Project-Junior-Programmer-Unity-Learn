@@ -6,7 +6,7 @@ public class MouseCardEvents : MonoBehaviour
 {
     public GameObject board;
     private BoardManager boardManager;
-    private Tetromino currentTetromino;
+    private Polymino currentPolymino;
     void Start()
     {
         boardManager = board.GetComponent<BoardManager>();
@@ -23,11 +23,11 @@ public class MouseCardEvents : MonoBehaviour
             
             if (cardDataUpdater != null)
             {
-                currentTetromino = boardManager.PreviewTetrominoInBoard(cardDataUpdater.tetromino);
+                currentPolymino = boardManager.PreviewPolyminoInBoard(cardDataUpdater.polymino);
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    boardManager.PlaceTetrominoInBoard(currentTetromino, cardDataUpdater.tile);
+                    boardManager.PlacePolyminoInBoard(currentPolymino, cardDataUpdater.tile);
                 }
             }   
         }

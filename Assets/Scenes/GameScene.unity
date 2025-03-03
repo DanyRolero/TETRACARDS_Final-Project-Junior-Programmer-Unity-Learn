@@ -284,7 +284,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &230404579
 Transform:
@@ -586,7 +586,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &660077232
 Transform:
@@ -664,11 +664,11 @@ GameObject:
   - component: {fileID: 795043294}
   - component: {fileID: 795043295}
   m_Layer: 0
-  m_Name: GameBoard
+  m_Name: BoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &795043294
 Transform:
@@ -686,7 +686,7 @@ Transform:
   - {fileID: 1903475333}
   - {fileID: 1185769275}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &795043295
 MonoBehaviour:
@@ -811,7 +811,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!156049354 &1185769274
 Grid:
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 1565430303}
   - component: {fileID: 1565430304}
   m_Layer: 0
-  m_Name: CardsHandManager
+  m_Name: CardsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1565430301
 MonoBehaviour:
@@ -1155,7 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d55aceb17024f8b981d3c41b3fee9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridBoard: {fileID: 2093003129}
   cardImages:
   - {fileID: 21300000, guid: 8c388b42b49b742248215b5603122279, type: 3}
   - {fileID: 21300000, guid: e7934ae6f7f3c4deb92f5bf84cca33f4, type: 3}
@@ -1184,12 +1183,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00333eb0c281d490fbe5fa8461049db7, type: 2}
   - {fileID: 11400000, guid: c520b453d84024a6ba5772704137d20f, type: 2}
   - {fileID: 11400000, guid: 55ac88e6bbb4d4ddc9cbf2bd919fba85, type: 2}
-  columnsOnGridBoard: 0
-  tetrominoId: 0
-  cardImageIndex: 0
-  tileIndex: 0
-  xPosition: 0
-  idOrder: 0
 --- !u!114 &1565430304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1293,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1767340322
 Transform:
@@ -1453,7 +1446,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1903475333
 Transform:
@@ -1493,11 +1486,11 @@ GameObject:
   - component: {fileID: 2093003131}
   - component: {fileID: 2093003130}
   m_Layer: 0
-  m_Name: GridGuide
+  m_Name: GridBoard
   m_TagString: GridBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!212 &2093003130
 SpriteRenderer:

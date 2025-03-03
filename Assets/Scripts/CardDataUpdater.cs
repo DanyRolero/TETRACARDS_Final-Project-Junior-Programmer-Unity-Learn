@@ -9,13 +9,13 @@ public class CardDataUpdater : MonoBehaviour
     public GameObject canvas;
     public int xPosition;
     public Tile tile;
-    public Tetromino tetromino;
+    public Polymino polymino;
     public int idOrder;
 
     //----------------------------------------------------------------------------------------------------
     public void UpdateCardData(CardData cardData)
     {
-        tetromino = cardData.tetromino;
+        polymino = cardData.polymino;
         xPosition = cardData.xPosition;
         idOrder = cardData.idOrder;
         tile = cardData.tile;
