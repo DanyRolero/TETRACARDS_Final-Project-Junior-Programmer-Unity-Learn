@@ -218,18 +218,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1565430301}
-        m_TargetAssemblyTypeName: HorizontalUniformDistributor, Assembly-CSharp
-        m_MethodName: UpdateDistributor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &64854913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +397,7 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: -4.5
+    e03: -1.5
     e10: 0
     e11: 1
     e12: 0
@@ -1438,7 +1426,7 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: -4.5
+    e03: -1.5
     e10: 0
     e11: 1
     e12: 0
@@ -1557,7 +1545,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 10, y: 15}
+  m_Size: {x: 4, y: 15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1

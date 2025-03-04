@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class FixedTetrominoCollection : PolyminoCollection
+public class FixedTetrominoCollection : PolyminoCollection
 {   
     public FixedTetrominoCollection()
     {

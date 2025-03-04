@@ -16,7 +16,7 @@ public class CardDataUpdater : MonoBehaviour
     public void UpdateCardData(CardData cardData)
     {
         polymino = cardData.polymino;
-        xPosition = cardData.xPosition;
+        xPosition = cardData.xPosition + 1;
         idOrder = cardData.idOrder;
         tile = cardData.tile;
         imageObject.GetComponent<SpriteRenderer>().sprite = cardData.cardImage;

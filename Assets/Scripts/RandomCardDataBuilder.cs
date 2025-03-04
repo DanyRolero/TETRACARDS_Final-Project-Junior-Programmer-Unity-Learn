@@ -12,7 +12,7 @@ public class RandomCardDataBuilder : MonoBehaviour
 
     void Start()
     {
-        randomPolyminoProvider  = new RandomFixedTetrominoCollection();
+        randomPolyminoProvider  = new RandomFixedPolyminoCollection();
         Initialize();
     }
 

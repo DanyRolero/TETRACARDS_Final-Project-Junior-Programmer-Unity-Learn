@@ -76,7 +76,7 @@ public class BoardManager : MonoBehaviour
     {
         foreach (Vector3Int cell in polymino.Cells)
         {
-            ghostBoard.SetTile(cell, tiles[9]);
+            ghostBoard.SetTile(cell, tiles[13]);
         }
     }
 

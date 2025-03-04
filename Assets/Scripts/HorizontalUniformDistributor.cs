@@ -13,10 +13,22 @@ public class HorizontalUniformDistributor : MonoBehaviour
     public GameObject item;
     private List<Vector3> itemsPositions;
 
+    private int amountItems;
+
     //--------------------------------------------------------------------------------
     void Start()
     {
         container = this.gameObject;
+    }
+
+    //--------------------------------------------------------------------------------
+    void Update()
+    {
+        if (container.transform.childCount != amountItems)
+        {
+            amountItems = container.transform.childCount;
+            UpdateDistributor();
+        }
     }
 
 

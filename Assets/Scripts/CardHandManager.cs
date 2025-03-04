@@ -22,6 +22,14 @@ public class CardHandManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    public void RemoveCard(GameObject card)
+    {
+        Destroy(card);
+        ReorderHandCardsByIdOrder();
+        ReorderInLayer();
+    }
+
+    //--------------------------------------------------------------------------------
     public void ClearHand()
     {
         foreach (Transform child in transform)
