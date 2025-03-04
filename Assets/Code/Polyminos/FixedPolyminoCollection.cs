@@ -11,7 +11,21 @@ public abstract class FixedTetrominoCollection : PolyminoCollection
     //----------------------------------------------------------------
     protected override void InitializeCollection()
     {
-        polyminoes = new Tetromino[19];
+        polyminoes = new Tetromino[28];
+
+
+        polyminoes[0] = new Monomino();
+
+
+
+
+
+
+
+
+
+
+
         polyminoes[0] = new Tetromino(0, 0, 1, 0, 2, 0, 3, 0, IdShape.I4);
         polyminoes[1] = new Tetromino(0, 0, 0, 1, 0, 2, 0, 3, IdShape.I4);
 
