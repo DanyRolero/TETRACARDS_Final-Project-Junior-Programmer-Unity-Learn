@@ -23,6 +23,7 @@ public class CardDataUpdater : MonoBehaviour
         textObject.GetComponent<Text>().text = xPosition.ToString();
     }
 
+    //----------------------------------------------------------------------------------------------------
     public void SetOrderInLayer(int order) {
         imageObject.GetComponent<SpriteRenderer>().sortingOrder = order;
         canvas.GetComponent<Canvas>().sortingOrder = order;

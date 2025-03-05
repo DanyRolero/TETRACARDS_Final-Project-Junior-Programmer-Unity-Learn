@@ -49,7 +49,6 @@ public class CardHandManager : MonoBehaviour
             children[i] = gameObject.transform.GetChild(i);
         }
 
-        // Ordenar los hijos por el atributo 'idOrder'
         System.Array.Sort(children, (Transform a, Transform b) =>
         {
             CardDataUpdater orderA = a.GetComponent<CardDataUpdater>();

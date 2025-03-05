@@ -29,6 +29,7 @@ public class MouseCardEvents : MonoBehaviour
                 {
                     Destroy(cardDataUpdater.gameObject);
                     boardManager.PlacePolyminoInBoard(currentPolymino, cardDataUpdater.tile);
+                    boardManager.CleanFullRows();
                 }
             }   
         }

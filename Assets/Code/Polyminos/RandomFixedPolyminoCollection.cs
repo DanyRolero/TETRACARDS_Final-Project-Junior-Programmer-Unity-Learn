@@ -26,7 +26,6 @@ public class RandomFixedPolyminoCollection : FixedPolyminoCollection, IRandomPol
             }
             polyminoesByShape[polymino.IdShape].Add(polymino);
         }
-        Debug.Log("polyminoesByShape.Count: " + polyminoesByShape.Count);
     }
 
     //----------------------------------------------------------------

@@ -9,13 +9,20 @@ public class BoardManager : MonoBehaviour
     public Tilemap mainBoard;
     public Tilemap ghostBoard;
     public GameObject grid;
-    public int yOrigin = 0;
+    public int heightGrid;
+    public int widthGrid;
+    private TileBase[] rowTiles;
 
-    private void Start()
+    void Start()
     {
-        yOrigin = (int)grid.GetComponent<SpriteRenderer>().size.y - 1;
-        //mainBoard.SetTile(new Vector3Int(0, yOrigin, 0), tiles[0]);
-        //Debug.Log(IsCellOccupied(new Vector3Int(0, 0, 0)));   
+        heightGrid = (int)grid.GetComponent<SpriteRenderer>().size.y;
+        widthGrid = (int)grid.GetComponent<SpriteRenderer>().size.x;
+    }
+
+    //--------------------------------------------------------------------------------
+    void update()
+    {
+        
     }
 
     /*
@@ -55,8 +62,8 @@ public class BoardManager : MonoBehaviour
         ClearGhostBoard();
         
         Polymino clon = polymino.Clone();
-        clon.Move(new Vector3Int(0, yOrigin, 0));
-        int currentY = yOrigin;
+        clon.Move(new Vector3Int(0, heightGrid - 1, 0));
+        int currentY = heightGrid - 1;
 
         while(!IsPolyminoColliding(clon))
         {
@@ -87,6 +94,12 @@ public class BoardManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    public void ClearMainBoard()
+    {
+        mainBoard.ClearAllTiles();
+    }
+
+    //--------------------------------------------------------------------------------
     public Polymino PreviewPolyminoInBoard(Polymino polymino)
     {
         Polymino ghostPolymino = TrackLowestValidPosition(polymino);
@@ -104,9 +117,9 @@ public class BoardManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    private bool CheckRowIsFull(int row)
+    public bool CheckRowIsFull(int row)
     {
-        for (int x = 0; x < mainBoard.size.x; x++)
+        for (int x = 0; x < widthGrid; x++)
         {
             if (!IsCellOccupied(new Vector3Int(x, row, 0)))
             {
@@ -120,17 +133,52 @@ public class BoardManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void ClearRow(int row)
     {
-        for (int x = 0; x < mainBoard.size.x; x++)
+        for (int x = 0; x < widthGrid; x++)
         {
             mainBoard.SetTile(new Vector3Int(x, row, 0), null);
         }
     }
 
     //--------------------------------------------------------------------------------
-    private void RowMoveDown(int row) 
+    private void CopyRow(int row) 
     {
-        // copiar tiles de la fila (copiar fila)
-        // eliminar fila original
+        rowTiles = new Tile[widthGrid];
+
+        for (int x = 0; x < widthGrid; x++)
+        {
+            rowTiles[x] = mainBoard.GetTile(new Vector3Int(x, row, 0));
+        }
     }
 
+    //--------------------------------------------------------------------------------
+    private void PasteRow(int row)
+    {
+        for (int x = 0; x < widthGrid; x++)
+        {
+            mainBoard.SetTile(new Vector3Int(x, row, 0), rowTiles[x]);
+        }
+    }
+
+    //--------------------------------------------------------------------------------
+    public void MoveRowsDown(int rowStart)
+    {
+        for (int y = rowStart; y < heightGrid; y++)
+        {
+            CopyRow(y);
+            PasteRow(y-1);
+        }
+    }
+
+    //--------------------------------------------------------------------------------
+    public void CleanFullRows()
+    {
+        for (int y = 0; y < heightGrid; y++)
+        {
+            if (CheckRowIsFull(y))
+            {
+                MoveRowsDown(y+1);
+                CleanFullRows();
+            }
+        }
+    }
 }
