@@ -25,17 +25,6 @@ public class BoardManager : MonoBehaviour
         
     }
 
-    /*
-        - Eliminar un tile del mainBoard.
-        - Eliminar una fila del mainboard.
-        - Eliminar varias filas del mainboard.
-        - subir filas
-        - bajar filas
-        --------------------------------
-        - Insertar fila según nivel.
-    
-    */
-
     //--------------------------------------------------------------------------------
     private bool IsCellOccupied(Vector3Int cell)
     {

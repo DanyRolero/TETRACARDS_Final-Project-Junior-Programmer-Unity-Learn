@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public abstract class FixedPolyminoCollection : PolyminoCollection
-{   
+{
     public FixedPolyminoCollection()
     {
-        InitializeCollection();  
+        InitializeCollection();
     }
 
     //----------------------------------------------------------------
@@ -38,7 +38,7 @@ public abstract class FixedPolyminoCollection : PolyminoCollection
 
         polyminoes[16] = new Tetromino(0, 0, 1, 0, 1, 1, 2, 1, IdShape.S4);
         polyminoes[17] = new Tetromino(1, 0, 0, 1, 1, 1, 0, 2, IdShape.S4);
-        
+
         polyminoes[18] = new Tetromino(0, 0, 1, 0, 2, 0, 0, 1, IdShape.J4);
         polyminoes[19] = new Tetromino(0, 1, 1, 1, 2, 1, 2, 0, IdShape.J4);
         polyminoes[20] = new Tetromino(0, 0, 0, 1, 0, 2, 1, 2, IdShape.J4);
@@ -50,6 +50,6 @@ public abstract class FixedPolyminoCollection : PolyminoCollection
         polyminoes[24] = new Tetromino(0, 0, 1, 0, 2, 0, 2, 1, IdShape.L4);
         polyminoes[25] = new Tetromino(0, 0, 0, 1, 1, 1, 2, 1, IdShape.L4);
         polyminoes[26] = new Tetromino(0, 0, 1, 0, 0, 1, 0, 2, IdShape.L4);
-        polyminoes[27] = new Tetromino(1, 0, 1, 1, 1, 2, 0, 2, IdShape.L4); 
+        polyminoes[27] = new Tetromino(1, 0, 1, 1, 1, 2, 0, 2, IdShape.L4);
     }
 }

@@ -41,6 +41,10 @@ public class RandomCardDataBuilder : MonoBehaviour
         currentPolymino.Move(new Vector3Int(xPosition, 0, 0));
         int idOrder = currentPolymino.Width + xPosition * 10;
 
+        Debug.Log(tileIndex);
+        Debug.Log(cardImageIndex);
+
+        // CORREGIR O REESTRUCTURAR SISTEMA DE POLYMINOS
         return new CardData(currentPolymino, xPosition, idOrder, tiles[tileIndex], cardImages[cardImageIndex]);
     }
 }

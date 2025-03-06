@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public abstract class Polymino
-{   public int Id {get; private set;}
-    protected static int idCount = 0;
+{   public int Id {get; protected set;}
+    private static int idCounter = 0;
     public IdShape IdShape {get; private set;}
     public Vector3Int[] Cells {get; protected set;}
     public int CellsCount => Cells.Length;
@@ -23,7 +23,7 @@ public abstract class Polymino
     {
         Cells = new Vector3Int[amountCells];
         IdShape = idShape;
-        Id = idCount++;
+        Id = idCounter++;
     }
 
     //----------------------------------------------------------------
