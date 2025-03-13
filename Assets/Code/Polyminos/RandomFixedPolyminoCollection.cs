@@ -3,60 +3,57 @@ using System.Linq;
 using UnityEngine;
 public class RandomFixedPolyminoCollection : FixedPolyminoCollection, IRandomPolyminoProvider
 {
-    private Dictionary<IdShape, List<Polymino>> polyminoesByShape;
-    private Dictionary<IdShape, SuffleBagIndexes> variantsByShapeBags;
-    private SuffleBagIndexes shapesBag;
-    public RandomFixedPolyminoCollection() : base()
+    public Dictionary<int, Dictionary<IdShape, List<Polymino>>> ClassificatedPolyminoes { get; private set; }
+    private SuffleBagIndexes CellsCountBag;
+
+
+    //----------------------------------------------------------------
+    public RandomFixedPolyminoCollection()
     {
-        InitializePolyminoesByShape();
-        InitializeVariantsByShapeBags();
-        InitializeShapesBag();
+        
     }
 
     //----------------------------------------------------------------
-    private void InitializePolyminoesByShape()
+    private void InitializeClassificatedPolyminoes()
     {
-        polyminoesByShape = new Dictionary<IdShape, List<Polymino>>();
+        ClassificatedPolyminoes = new Dictionary<int, Dictionary<IdShape, List<Polymino>>>();
 
         foreach (Polymino polymino in polyminoes)
         {
-            if (!polyminoesByShape.ContainsKey(polymino.IdShape))
+            if (!ClassificatedPolyminoes.ContainsKey(polymino.CellsCount))
             {
-                polyminoesByShape.Add(polymino.IdShape, new List<Polymino>());
+                ClassificatedPolyminoes.Add(polymino.CellsCount, new Dictionary<IdShape, List<Polymino>>());
             }
-            polyminoesByShape[polymino.IdShape].Add(polymino);
+
+            if (!ClassificatedPolyminoes[polymino.CellsCount].ContainsKey(polymino.IdShape))
+            {
+                ClassificatedPolyminoes[polymino.CellsCount].Add(polymino.IdShape, new List<Polymino>());
+            }
+
+            ClassificatedPolyminoes[polymino.CellsCount][polymino.IdShape].Add(polymino);
         }
     }
 
     //----------------------------------------------------------------
-    private void InitializeVariantsByShapeBags()
+    private void InitializeCellsCountBag()
     {
-        variantsByShapeBags = new Dictionary<IdShape, SuffleBagIndexes>();
-
-        foreach (IdShape shape in polyminoesByShape.Keys)
+        CellsCountBag = new SuffleBagIndexes();
+        
+        foreach (int key in ClassificatedPolyminoes.Keys)
         {
-            variantsByShapeBags.Add(shape, new SuffleBagIndexes(polyminoesByShape[shape].Count));
+            CellsCountBag.AddIndexToBag(key);
         }
-
-    }
-
-    //----------------------------------------------------------------
-    private void InitializeShapesBag()
-    {
-        shapesBag = new SuffleBagIndexes(polyminoesByShape.Count);
     }
 
     //----------------------------------------------------------------
     public Polymino GetNextRandomPolymino()
     {
-        int randomShapeIndex = shapesBag.GetRandomIndex();
-        int randomVariantIndex = variantsByShapeBags.ElementAt(randomShapeIndex).Value.GetRandomIndex();
-        return polyminoesByShape[variantsByShapeBags.ElementAt(randomShapeIndex).Key][randomVariantIndex];
+
     }
 
     //----------------------------------------------------------------
     public Polymino[] GetPolyminoes()
     {
-        return polyminoes;
+
     }
 }
