@@ -23,7 +23,8 @@ public abstract class Polymino
     {
         Cells = new Vector3Int[amountCells];
         IdShape = idShape;
-        Id = idCounter++;
+        Id = idCounter;
+        idCounter++;
     }
 
     //----------------------------------------------------------------

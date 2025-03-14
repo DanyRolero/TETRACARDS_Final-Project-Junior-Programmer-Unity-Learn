@@ -397,7 +397,7 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: -4.5
+    e03: -1.5
     e10: 0
     e11: 1
     e12: 0
@@ -584,8 +584,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660077231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.0127, y: -0.0127, z: 0}
+  m_LocalScale: {x: 0.39889327, y: 0.9984, z: 1}
   m_Children: []
   m_Father: {fileID: 795043294}
   m_RootOrder: 0
@@ -1077,9 +1077,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1565430300}
+  - component: {fileID: 1565430303}
   - component: {fileID: 1565430301}
   - component: {fileID: 1565430302}
-  - component: {fileID: 1565430303}
   - component: {fileID: 1565430304}
   m_Layer: 0
   m_Name: CardsManager
@@ -1137,6 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3623767881891307263, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
+  amountInitialCards: 8
 --- !u!114 &1565430303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,7 +1429,7 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: -4.5
+    e03: -1.5
     e10: 0
     e11: 1
     e12: 0
@@ -1761,7 +1762,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 10, y: 15}
+  m_Size: {x: 4, y: 15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1

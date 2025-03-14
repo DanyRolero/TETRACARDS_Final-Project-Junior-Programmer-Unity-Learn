@@ -20,12 +20,6 @@ public class BoardManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    void update()
-    {
-        
-    }
-
-    //--------------------------------------------------------------------------------
     private bool IsCellOccupied(Vector3Int cell)
     {
         return mainBoard.GetTile(cell) != null;

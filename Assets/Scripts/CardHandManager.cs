@@ -7,10 +7,13 @@ public class CardHandManager : MonoBehaviour
     public GameObject cardPrefab;
     private RandomCardDataBuilder randomCardDataBuilder;
 
+    public int amountInitialCards;
+
     //--------------------------------------------------------------------------------
-    void Start()
+    public void Start()
     {
         randomCardDataBuilder = gameObject.GetComponent<RandomCardDataBuilder>();
+        InitialDraw();
     }
 
     //--------------------------------------------------------------------------------
@@ -19,6 +22,15 @@ public class CardHandManager : MonoBehaviour
         InstanciateRandomCard();
         ReorderHandCardsByIdOrder();
         ReorderInLayer();
+    }
+
+    //--------------------------------------------------------------------------------
+    private void InitialDraw() 
+    {
+        for(int i = 0; i < amountInitialCards; i++)
+        {
+            AddCard();
+        }
     }
 
     //--------------------------------------------------------------------------------
@@ -92,7 +104,6 @@ public class CardHandManager : MonoBehaviour
         {
             CardDataUpdater cardDataUpdater = gameObject.transform.GetChild(i).GetComponent<CardDataUpdater>();
             cardDataUpdater.SetOrderInLayer(i + 1);
-        }
-        
+        }   
     }
 }

@@ -23,7 +23,7 @@ public abstract class FixedPolyminoCollection : PolyminoCollection
 
         polyminoes[5] = new Tromino(0, 0, 1, 0, 0, 1, IdShape.L3);
         polyminoes[6] = new Tromino(0, 0, 1, 0, 1, 1, IdShape.L3);
-        polyminoes[7] = new Tromino(1, 0, 0, 1, 1, 1, IdShape.L3);
+        polyminoes[7] = new Tromino(0, 0, 0, 1, 1, 1, IdShape.L3);
         polyminoes[8] = new Tromino(0, 1, 1, 0, 1, 1, IdShape.L3);
 
         polyminoes[9] = new Tetromino(0, 0, 1, 0, 2, 0, 3, 0, IdShape.I4);
