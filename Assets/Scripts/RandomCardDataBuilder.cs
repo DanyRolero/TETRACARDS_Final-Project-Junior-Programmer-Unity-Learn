@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -18,15 +19,23 @@ public class RandomCardDataBuilder : MonoBehaviour
 
     private void Initialize()
     {
+        
         int columnsOnGridBoard = (int)GameObject.Find("GridBoard").GetComponent<SpriteRenderer>().size.x;
         
         xPositionsByPolyminoWidth = new Dictionary<int, SuffleBagIndexes>();
+        
+        SuffleBagIndexes currentBag;
 
         foreach (Polymino polymino in randomPolyminoProvider.GetPolyminoes())
         {
             if (!xPositionsByPolyminoWidth.ContainsKey(polymino.Width))
             {
-                xPositionsByPolyminoWidth.Add(polymino.Width, new SuffleBagIndexes(columnsOnGridBoard - polymino.Width + 1));
+                currentBag = new SuffleBagIndexes(columnsOnGridBoard - polymino.Width + 1);
+
+                xPositionsByPolyminoWidth.Add(polymino.Width, currentBag);
+                currentBag.AddIndexToBag(0);
+
+                if(polymino.Width == 1) currentBag.AddIndexToBag(columnsOnGridBoard - 1);
             }
         }
     }
