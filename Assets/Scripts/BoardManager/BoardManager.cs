@@ -13,12 +13,22 @@ public class BoardManager : MonoBehaviour
     public int widthGrid;
     private TileBase[] rowTiles;
 
-    void Start()
-    {
-        heightGrid = (int)grid.GetComponent<SpriteRenderer>().size.y;
-        widthGrid = (int)grid.GetComponent<SpriteRenderer>().size.x;
-    }
 
+    //--------------------------------------------------------------------------------
+    public void Initialize(Vector2Int size)
+    {
+        widthGrid = size.x;
+        heightGrid = size.y;
+
+        grid.GetComponent<SpriteRenderer>().size = size;
+
+
+        float xOffset = size.x / -2 + 0.5f;
+        float yOffset = size.y / -2;
+
+        mainBoard.GetComponent<Tilemap>().tileAnchor = new Vector3(xOffset, yOffset, 0);
+        ghostBoard.GetComponent<Tilemap>().tileAnchor = new Vector3(xOffset, yOffset, 0);
+    }
     //--------------------------------------------------------------------------------
     private bool IsCellOccupied(Vector3Int cell)
     {

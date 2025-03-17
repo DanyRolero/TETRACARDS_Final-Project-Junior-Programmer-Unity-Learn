@@ -11,16 +11,12 @@ public class RandomCardDataBuilder : MonoBehaviour
     public Tile[] tiles;
     public Polymino currentPolymino;
 
-    void Awake()
+
+    public void Initialize(int boardColumns)
     {
         randomPolyminoProvider  = new RandomFixedPolyminoCollection();
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         
-        int columnsOnGridBoard = (int)GameObject.Find("GridBoard").GetComponent<SpriteRenderer>().size.x;
+        int columnsOnGridBoard = boardColumns;
         
         xPositionsByPolyminoWidth = new Dictionary<int, SuffleBagIndexes>();
         
@@ -33,9 +29,14 @@ public class RandomCardDataBuilder : MonoBehaviour
                 currentBag = new SuffleBagIndexes(columnsOnGridBoard - polymino.Width + 1);
 
                 xPositionsByPolyminoWidth.Add(polymino.Width, currentBag);
+
+                //Balanced edge cards positions
                 currentBag.AddIndexToBag(0);
 
+                
                 if(polymino.Width == 1) currentBag.AddIndexToBag(columnsOnGridBoard - 1);
+                if(polymino.Width == 2) currentBag.AddIndexToBag(columnsOnGridBoard - 2);
+                if(polymino.Width == 3) currentBag.AddIndexToBag(columnsOnGridBoard - 3);
             }
         }
     }

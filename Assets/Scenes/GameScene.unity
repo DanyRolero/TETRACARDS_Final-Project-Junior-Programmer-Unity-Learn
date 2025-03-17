@@ -209,11 +209,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1565430302}
         m_TargetAssemblyTypeName: CardHandManager, Assembly-CSharp
         m_MethodName: AddCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -397,11 +397,11 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: -1.5
+    e03: 0
     e10: 0
     e11: 1
     e12: 0
-    e13: -7
+    e13: 0
     e20: 0
     e21: 0
     e22: 1
@@ -557,7 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660077231
 GameObject:
@@ -674,7 +674,7 @@ Transform:
   - {fileID: 1903475333}
   - {fileID: 1185769275}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &795043295
 MonoBehaviour:
@@ -928,7 +928,7 @@ RectTransform:
   - {fileID: 1405249611}
   - {fileID: 2073526530}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1100,7 +1100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1565430301
 MonoBehaviour:
@@ -1207,6 +1207,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 795043293}
+--- !u!1 &1595676495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595676496}
+  - component: {fileID: 1595676497}
+  - component: {fileID: 1595676498}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595676496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595676495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.048042, y: 21.909506, z: -1102.5771}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595676497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595676495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a95bb2f7675406fa760a6ee93dcf72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardManager: {fileID: 795043293}
+  cardsManager: {fileID: 1565430299}
+--- !u!114 &1595676498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595676495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d848192b3abe4cbf8b18dae1aabbe96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: {x: 4, y: 15}
+  amountInitialCards: 8
+  amountTurnCards: 1
+  neededPlayedCardsForDraw: 4
+  neededDestroyedRowsForDraw: 4
+  amountCardsDrawedForPlayedCombo: 1
+  amountCardsDrawedForRowsCombo: 1
+  amountCardsDrawedFor1Row: 1
+  amountCardsDrawedFor2Rows: 3
+  amountCardsDrawedFor3Rows: 5
+  amountCardsDrawedFor4Rows: 8
+  amountCardsDrawedFor5Rows: 10
+  amountExtraCardsDrawedForOneColorRow: 1
+  amountCardsDrawedForCleanTheBoard: 1
 --- !u!1 &1613432663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,11 +1501,11 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: -1.5
+    e03: 0
     e10: 0
     e11: 1
     e12: 0
-    e13: -7
+    e13: 0
     e20: 0
     e21: 0
     e22: 1

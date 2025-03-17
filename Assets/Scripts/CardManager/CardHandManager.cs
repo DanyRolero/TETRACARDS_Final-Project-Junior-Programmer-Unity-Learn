@@ -10,26 +10,20 @@ public class CardHandManager : MonoBehaviour
     public int amountInitialCards;
 
     //--------------------------------------------------------------------------------
-    public void Start()
+    public void Initialize(int boardColumns)
     {
         randomCardDataBuilder = gameObject.GetComponent<RandomCardDataBuilder>();
-        InitialDraw();
+        randomCardDataBuilder.Initialize(boardColumns);
     }
 
     //--------------------------------------------------------------------------------
-    public void AddCard()
+    public void AddCard(int amount = 1)
     {
-        InstanciateRandomCard();
-        ReorderHandCardsByIdOrder();
-        ReorderInLayer();
-    }
-
-    //--------------------------------------------------------------------------------
-    private void InitialDraw() 
-    {
-        for(int i = 0; i < amountInitialCards; i++)
+        for(int i = 0; i < amount; i++)
         {
-            AddCard();
+            InstanciateRandomCard();
+            ReorderHandCardsByIdOrder();
+            ReorderInLayer();
         }
     }
 
@@ -48,6 +42,14 @@ public class CardHandManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    //--------------------------------------------------------------------------------
+    private void InstanciateRandomCard() {
+        GameObject tetroCard = Instantiate(cardPrefab, gameObject.transform);
+        CardDataUpdater cardDataUpdater = tetroCard.GetComponent<CardDataUpdater>();
+        CardData cardData = randomCardDataBuilder.GetNextRandomCardData();
+        cardDataUpdater.UpdateCardData(cardData);
     }
 
     //--------------------------------------------------------------------------------
@@ -86,14 +88,6 @@ public class CardHandManager : MonoBehaviour
         {
             children[i].SetSiblingIndex(i);
         }
-    }
-
-    //--------------------------------------------------------------------------------
-    private void InstanciateRandomCard() {
-        GameObject tetroCard = Instantiate(cardPrefab, gameObject.transform);
-        CardDataUpdater cardDataUpdater = tetroCard.GetComponent<CardDataUpdater>();
-        CardData cardData = randomCardDataBuilder.GetNextRandomCardData();
-        cardDataUpdater.UpdateCardData(cardData);
     }
 
     //--------------------------------------------------------------------------------
