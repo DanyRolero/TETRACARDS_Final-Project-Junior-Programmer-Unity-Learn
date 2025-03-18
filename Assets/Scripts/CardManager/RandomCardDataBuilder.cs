@@ -12,6 +12,7 @@ public class RandomCardDataBuilder : MonoBehaviour
     public Polymino currentPolymino;
 
 
+    //--------------------------------------------------------------------------------
     public void Initialize(int boardColumns)
     {
         randomPolyminoProvider  = new RandomFixedPolyminoCollection();

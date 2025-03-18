@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
+    
+    private static GameSettings _instance;
+    
     // Board Settings
     public Vector2Int gridSize = new Vector2Int(4, 15); 
-
-
+    
     // Cards Settings
     public int amountInitialCards = 8;
     public int amountTurnCards = 1;
@@ -16,12 +18,17 @@ public class GameSettings : MonoBehaviour
     public int neededDestroyedRowsForDraw = 4;
     public int amountCardsDrawedForPlayedCombo = 1;
     public int amountCardsDrawedForRowsCombo = 1;
-    public int amountCardsDrawedFor1Row = 1;
-    public int amountCardsDrawedFor2Rows = 3;
-    public int amountCardsDrawedFor3Rows = 5;
-    public int amountCardsDrawedFor4Rows = 8;
-    public int amountCardsDrawedFor5Rows = 10;
-    public int amountExtraCardsDrawedForOneColorRow = 1;
+    public float drawRatioPerFullRows = 1.8f;
+    public int amountExtraCardsDrawedForMonocolorRow = 1;
     public int amountCardsDrawedForCleanTheBoard = 1;
+
+    private GameSettings() { }
+
+    //------------------------------------------------------------
+    public static GameSettings GetInstance()
+    {
+        if(_instance == null) _instance = new GameSettings();
+        return _instance;
+    }
 
 }
