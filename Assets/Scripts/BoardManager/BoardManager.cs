@@ -30,6 +30,9 @@ public class BoardManager : MonoBehaviour
 
         mainBoard.GetComponent<Tilemap>().tileAnchor = new Vector3(xOffset, yOffset, 0);
         ghostBoard.GetComponent<Tilemap>().tileAnchor = new Vector3(xOffset, yOffset, 0);
+
+        Counters = new Dictionary<string, int>();
+        Counters.Add("Rows", 0);
     }
     //--------------------------------------------------------------------------------
     // Verifica si una celda del tilemap contiene un tile
@@ -54,7 +57,8 @@ public class BoardManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    // Registra y mueve un polymino a la fila más alta posible en la que no colisiona con ningún tile
+    // Mueve un polymino a la fila más baja posible en la que no colisiona con ningún tile
+    // COMPORTAMIENTO DE LA PIEZA EN EL TABLERO
     private Polymino TrackLowestValidPosition(Polymino polymino)
     {
         ClearGhostBoard();
@@ -78,6 +82,7 @@ public class BoardManager : MonoBehaviour
 
     //--------------------------------------------------------------------------------
     // Dibuja en tilemap a partir de un polymino
+    // PREVISUALIZACIÓN
     private void DrawGhostPolymino(Polymino polymino)
     {
         foreach (Vector3Int cell in polymino.Cells)
@@ -102,6 +107,7 @@ public class BoardManager : MonoBehaviour
 
     //--------------------------------------------------------------------------------
     // Dibuja la posición prevista en el tilemap
+    // PREVISUALIZACIÓN
     public Polymino PreviewPolyminoInBoard(Polymino polymino)
     {
         Polymino ghostPolymino = TrackLowestValidPosition(polymino);
@@ -137,6 +143,7 @@ public class BoardManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void CountTotalFullRows()
     {
+        Counters["Rows"] = 0;
         for (int y = 0; y < heightGrid; y++)
         {
             if (!CheckRowIsFull(y)) continue;
@@ -144,23 +151,13 @@ public class BoardManager : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------------------
     public void Recount()
     {
-        Counters = new Dictionary<string, int>();
         CountTotalFullRows();
     }
 
-    /*
-        - Leer todo el tablero (tras jugar una carta)
-        - Contar cuantas filas completas en total -> para combo de filas simultáneas
-        - Contar cuantas filas monocolor hay 
-        - Contar cuantas filas multicolor hay
-        - Verificar si el tablero esta totalmente vacío -> Robo extra
-        - Verificar cuantos bloques especiales hay en una fila -> Robo extra
-    */
-
     //--------------------------------------------------------------------------------
-    // Borra los tiles de una fila
     private void ClearRow(int row)
     {
         for (int x = 0; x < widthGrid; x++)
