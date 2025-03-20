@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public abstract class Polymino
-{   public int Id {get; protected set;}
-    private static int idCounter = 0;
+public class Polymino
+{   
     public IdShape IdShape {get; private set;}
-    public Vector3Int[] Cells {get; protected set;}
+    public Vector3Int[] Cells {get; private set;}
     public int CellsCount => Cells.Length;
     public int MinX => CalculateMinX();
     public int MaxX => CalculateMaxX();
@@ -19,12 +18,10 @@ public abstract class Polymino
     public Vector3Int this[int index] => Cells[index];
 
     //----------------------------------------------------------------
-    public Polymino(int amountCells, IdShape idShape)
+    public Polymino(PolyminoData polyminoData)
     {
-        Cells = new Vector3Int[amountCells];
-        IdShape = idShape;
-        Id = idCounter;
-        idCounter++;
+        Cells = (Vector3Int[])polyminoData.Cells.Clone();
+        IdShape = polyminoData.IdShape;
     }
 
     //----------------------------------------------------------------
