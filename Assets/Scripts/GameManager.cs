@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void Awake()
     {
+        /*
         Application.targetFrameRate = 30;
 
         boardManagerScript = boardManager.GetComponent<BoardManager>();
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         boardManagerScript.Initialize(gameSettings.gridSize);
         cardsHandManagerScript.Initialize(gameSettings.gridSize.x);
-
+*/
     }
 
     //--------------------------------------------------------------------------------
@@ -62,14 +63,14 @@ public class GameManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void CardHandMouseOverHandler(CardDataUpdater cardDataUpdater)
     {
-        currentPolymino = boardManagerScript.PreviewPolyminoInBoard(cardDataUpdater.polymino);
+        //currentPolymino = boardManagerScript.PreviewPolyminoInBoard(cardDataUpdater.polymino);
     }
 
     //--------------------------------------------------------------------------------
     private void CardHandClickHandler(CardDataUpdater cardDataUpdater)
     {
         Destroy(cardDataUpdater.gameObject);
-        boardManagerScript.PlacePolyminoInBoard(currentPolymino, cardDataUpdater.tile);
+        //boardManagerScript.PlacePolyminoInBoard(currentPolymino, cardDataUpdater.tile);
         boardManagerScript.Recount();
         int cardsDrawedForRows = (int)Math.Floor(gameSettings.drawRatioPerFullRows * boardManagerScript.Counters["Rows"]);
         cardsHandManagerScript.AddCard(cardsDrawedForRows);

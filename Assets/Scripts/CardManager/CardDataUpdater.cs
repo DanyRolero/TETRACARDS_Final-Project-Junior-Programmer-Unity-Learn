@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CardDataUpdater : MonoBehaviour
 {
+    /*
     public GameObject imageObject;
     public GameObject textObject;
     public GameObject canvas;
@@ -28,4 +29,5 @@ public class CardDataUpdater : MonoBehaviour
         imageObject.GetComponent<SpriteRenderer>().sortingOrder = order;
         canvas.GetComponent<Canvas>().sortingOrder = order;
     }
+    */
 }

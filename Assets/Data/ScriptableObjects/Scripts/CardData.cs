@@ -1,12 +1,14 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "CardData", menuName = "CardData", order = 1)]
+[CreateAssetMenu(fileName = "CardData", menuName = "CardData", order = 2)]
 public class CardData : ScriptableObject
 {
-    public PolyminoData polymino;
-    public Sprite image;
-    public Tile tile;
+    [SerializeField] PolyminoData polymino;    
+    public PolyminoData Polymino {get; private set;}
+    [SerializeField] Sprite cardImage;
+    public Sprite Image {get; private set;}
+    [SerializeField] BlockData[] blocks;
+    public BlockData[] Blocks {get; private set;}
 
     //Efectos
         // Efecto de posicionar en el tablero -> Previsualizable 

@@ -48,8 +48,8 @@ public class CardHandManager : MonoBehaviour
     private void InstanciateRandomCard() {
         GameObject tetroCard = Instantiate(cardPrefab, gameObject.transform);
         CardDataUpdater cardDataUpdater = tetroCard.GetComponent<CardDataUpdater>();
-        CardData cardData = randomCardDataBuilder.GetNextRandomCardData();
-        cardDataUpdater.UpdateCardData(cardData);
+        //CardData cardData = randomCardDataBuilder.GetNextRandomCardData();
+        //cardDataUpdater.UpdateCardData(cardData);
     }
 
     //--------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ public class CardHandManager : MonoBehaviour
 
             if (orderA != null && orderB != null)
             {
-                return orderA.idOrder.CompareTo(orderB.idOrder);
+                //return orderA.idOrder.CompareTo(orderB.idOrder);
             }
             else if (orderA != null)
             {
@@ -97,7 +97,7 @@ public class CardHandManager : MonoBehaviour
         for (int i = 0; i < childCount; i++)
         {
             CardDataUpdater cardDataUpdater = gameObject.transform.GetChild(i).GetComponent<CardDataUpdater>();
-            cardDataUpdater.SetOrderInLayer(i + 1);
+            //cardDataUpdater.SetOrderInLayer(i + 1);
         }   
     }
 }
