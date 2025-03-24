@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     private Polymino currentPolymino;
 
+    public GameEventData gameStartedEvent;
+
 
 
 
@@ -30,8 +32,9 @@ public class GameManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void Awake()
     {
-        /*
         Application.targetFrameRate = 30;
+        StartGame();
+        /*
 
         boardManagerScript = boardManager.GetComponent<BoardManager>();
         cardsHandManagerScript = cardsManager.GetComponent<CardHandManager>();
@@ -51,7 +54,8 @@ public class GameManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void StartGame()
     {
-
+        
+        gameStartedEvent.Raise();
     }
 
     //--------------------------------------------------------------------------------
