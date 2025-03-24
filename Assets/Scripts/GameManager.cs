@@ -1,34 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameEventData gameStartedEvent;
     public GameObject boardManager;
     public GameObject cardsManager;
-
     private BoardManager boardManagerScript;
     private CardHandManager cardsHandManagerScript;
     private MouseCardEvents mouseCardEventsScript;
     private GameSettings gameSettings;
-
     private int cardsPlayedInTurn;
     private int linesDestroyedInTurn;
-
     private Polymino currentPolymino;
 
-    public GameEventData gameStartedEvent;
-
-
-
-
-    /*  
-        ----------------------------------------
-        MECÁNICAS DEL JUEGO
-        ----------------------------------------
-        - Robo de cartas inicial 
-    */
     //--------------------------------------------------------------------------------
     private void Awake()
     {
