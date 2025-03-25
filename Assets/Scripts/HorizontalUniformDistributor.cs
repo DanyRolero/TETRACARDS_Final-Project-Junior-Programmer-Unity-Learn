@@ -16,21 +16,10 @@ public class HorizontalUniformDistributor : MonoBehaviour
     private int amountItems;
 
     //--------------------------------------------------------------------------------
-    void Start()
+    void Awake()
     {
         container = this.gameObject;
     }
-
-    //--------------------------------------------------------------------------------
-    void Update()
-    {
-        if (container.transform.childCount != amountItems)
-        {
-            amountItems = container.transform.childCount;
-            UpdateDistributor();
-        }
-    }
-
 
     //--------------------------------------------------------------------------------
     public void UpdateDistributor()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CardHandManager : MonoBehaviour
@@ -8,6 +6,8 @@ public class CardHandManager : MonoBehaviour
     private RandomCardDataBuilder randomCardDataBuilder;
 
     public int amountInitialCards;
+
+    public CardEventData cardHandChangedEvent;
 
     //--------------------------------------------------------------------------------
     public void Initialize(int boardColumns)
@@ -99,5 +99,10 @@ public class CardHandManager : MonoBehaviour
             CardDataUpdater cardDataUpdater = gameObject.transform.GetChild(i).GetComponent<CardDataUpdater>();
             //cardDataUpdater.SetOrderInLayer(i + 1);
         }   
+    }
+
+    public void AAShowName(Card card)
+    {
+        Debug.Log(card.cardName);
     }
 }

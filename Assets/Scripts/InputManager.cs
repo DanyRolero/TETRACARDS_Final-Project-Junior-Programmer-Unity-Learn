@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public delegate void CardHandDelegate(CardDataUpdater cardDataUpdater);
-    public delegate void CardHandClearDelegate();
-    public event CardHandDelegate OnHandCardMouseOver;
-    public event CardHandDelegate OnHandCardClick;
-    public event CardHandClearDelegate OnHandCardMouseExit;
+    public CardEventData cardEventData;
+    private Vector2 mousePosition;
+    private RaycastHit2D hit;
+
 
     //--------------------------------------------------------------------------------
     void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
         if (hit.collider != null)
         {
-            CardDataUpdater cardDataUpdater = hit.collider.gameObject.GetComponent<CardDataUpdater>();
+            Card card = hit.collider.gameObject.GetComponent<Card>();
 
-            if (cardDataUpdater != null)
+            if (card != null)
             {
-                OnHandCardMouseOver?.Invoke(cardDataUpdater);
+                cardEventData.Raise(card);
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    OnHandCardClick?.Invoke(cardDataUpdater);
+
                 }
 
             }
         }
-
-        else OnHandCardMouseExit?.Invoke();
     }
 }

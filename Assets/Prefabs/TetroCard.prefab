@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 3623767881891307256}
   - component: {fileID: 4519780365975433463}
   - component: {fileID: 2879499116381608927}
+  - component: {fileID: 8166341899173853159}
   m_Layer: 0
   m_Name: TetroCard
   m_TagString: Untagged
@@ -228,12 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec076e443a5d44d22b9b93b8bbfb3dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageObject: {fileID: 3623767881533104079}
-  textObject: {fileID: 7179188165035016805}
-  canvas: {fileID: 2035114483115010039}
-  xPosition: 0
-  tile: {fileID: 0}
-  idOrder: 0
 --- !u!61 &2879499116381608927
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +255,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3.6681643}
   m_EdgeRadius: 0
+--- !u!114 &8166341899173853159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623767881891307263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6da0aac0313443483b07ca77a934d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: Evento mouse over de carta exitoso!
 --- !u!1 &7179188165035016805
 GameObject:
   m_ObjectHideFlags: 0
