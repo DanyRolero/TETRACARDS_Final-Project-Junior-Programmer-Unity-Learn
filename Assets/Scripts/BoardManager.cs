@@ -43,7 +43,7 @@ public class BoardManager : MonoBehaviour
 
     //--------------------------------------------------------------------------------
     // Verifica si colisiona alguna de las celdas del polymino con alguno de los tiles del tablero
-    private bool IsPolyminoColliding(Polymino polymino)
+    private bool IsPolyminoColliding(PolyminoData polymino)
     {
         foreach (Vector3Int cell in polymino.Cells)
         {
@@ -59,11 +59,11 @@ public class BoardManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     // Mueve un polymino a la fila más baja posible en la que no colisiona con ningún tile
     // COMPORTAMIENTO DE LA PIEZA EN EL TABLERO
-    private Polymino TrackLowestValidPosition(Polymino polymino)
+    private PolyminoData TrackLowestValidPosition(PolyminoData polymino)
     {
         ClearGhostBoard();
 
-        Polymino clon = polymino.Clone();
+        PolyminoData clon = polymino.Clone();
         clon.Move(new Vector3Int(0, heightGrid - 1, 0));
         int currentY = heightGrid - 1;
 
@@ -83,7 +83,7 @@ public class BoardManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     // Dibuja en tilemap a partir de un polymino
     // PREVISUALIZACIÓN
-    private void DrawGhostPolymino(Polymino polymino)
+    private void DrawGhostPolymino(PolyminoData polymino)
     {
         foreach (Vector3Int cell in polymino.Cells)
         {
@@ -108,16 +108,16 @@ public class BoardManager : MonoBehaviour
     //--------------------------------------------------------------------------------
     // Dibuja la posición prevista en el tilemap
     // PREVISUALIZACIÓN
-    public Polymino PreviewPolyminoInBoard(Polymino polymino)
+    public PolyminoData PreviewPolyminoInBoard(PolyminoData polymino)
     {
-        Polymino ghostPolymino = TrackLowestValidPosition(polymino);
+        PolyminoData ghostPolymino = TrackLowestValidPosition(polymino);
         DrawGhostPolymino(ghostPolymino);
         return ghostPolymino;
     }
 
     //--------------------------------------------------------------------------------
     // Dibuja en el tilemap a partir de un polymino dado
-    public void PlacePolyminoInBoard(Polymino polymino, Tile tile)
+    public void PlacePolyminoInBoard(PolyminoData polymino, Tile tile)
     {
         foreach (Vector3Int cell in polymino.Cells)
         {

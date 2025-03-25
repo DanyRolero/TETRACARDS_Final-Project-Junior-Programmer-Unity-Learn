@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1565430302}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CardHandManager, Assembly-CSharp
         m_MethodName: AddCard
         m_Mode: 3
@@ -410,49 +410,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &336542598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 336542600}
-  - component: {fileID: 336542599}
-  m_Layer: 0
-  m_Name: StartGameHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &336542599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336542598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9302b7236154446dab2ee7efe6c15e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &336542600
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336542598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0078118537, y: -0.0037943283, z: -0.000974767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391299059
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660077231
 GameObject:
@@ -693,7 +650,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 795043294}
-  - component: {fileID: 795043295}
   m_Layer: 0
   m_Name: BoardManager
   m_TagString: Untagged
@@ -708,107 +664,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795043293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 660077232}
   - {fileID: 2093003131}
   - {fileID: 1903475333}
   - {fileID: 1185769275}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &795043295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795043293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48073f1d0622c4e15b513c38c90765ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: f6a02d4969dca4f2cb42cfba076ff9da, type: 2}
-  - {fileID: 11400000, guid: c5f3fc9d7cddc4c1a863c896b21f7794, type: 2}
-  - {fileID: 11400000, guid: 8ca3c4697246d4a8aad25cd5bba00a68, type: 2}
-  - {fileID: 11400000, guid: 3aef26de804a04fe6b8bbc9cee1172fc, type: 2}
-  - {fileID: 11400000, guid: 57c75782a9656438d96fbc78e9d04ca5, type: 2}
-  - {fileID: 11400000, guid: 0f1abac6863504487a08b48d9a6297c4, type: 2}
-  - {fileID: 11400000, guid: 92202d4af274448bf88da6cbb4240f6f, type: 2}
-  - {fileID: 11400000, guid: 2433ff03018984c7fa288856380eadf3, type: 2}
-  - {fileID: 11400000, guid: 6b3531b1a34554cc0bbfe71b308a52fe, type: 2}
-  - {fileID: 11400000, guid: 509f5367c3d61498aa6e09e54a873002, type: 2}
-  - {fileID: 11400000, guid: 8140cca9e5b9d48e68ad35a6d6ce8e6b, type: 2}
-  - {fileID: 11400000, guid: f3d267a6eee864ab2883b24f2889a2ad, type: 2}
-  - {fileID: 11400000, guid: 3e329349cc679469b8a996a91a9950ed, type: 2}
-  - {fileID: 11400000, guid: 63ce37f055e824259a8b02e82e3c4a78, type: 2}
-  mainBoard: {fileID: 230404581}
-  ghostBoard: {fileID: 1767340324}
-  grid: {fileID: 2093003129}
-  heightGrid: 0
-  widthGrid: 0
---- !u!1 &859157499
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 859157501}
-  - component: {fileID: 859157500}
-  m_Layer: 0
-  m_Name: EventListenerTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &859157500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859157499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd2d79ba6426b4111ae1e3ab63b58b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: f4a8509bbcdb14ba9bd8c0a2442911ee, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 336542599}
-        m_TargetAssemblyTypeName: EffectsController, Assembly-CSharp
-        m_MethodName: StartGameHandler
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!4 &859157501
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859157499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0078118537, y: -0.0037943283, z: -0.000974767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1854099049}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990104251
 GameObject:
@@ -935,6 +800,50 @@ Transform:
   m_Father: {fileID: 795043294}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1195158404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195158405}
+  - component: {fileID: 1195158406}
+  m_Layer: 0
+  m_Name: DeckManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195158405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195158404}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4421611, y: 0.791606, z: -0.29677814}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1565430300}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195158406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195158404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36981d0163664b83b73ac3fb2a32b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsCollectionData: {fileID: 11400000, guid: 661efad6f5dd8440690354ab99ce01ad, type: 2}
 --- !u!1 &1242179198
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +857,7 @@ GameObject:
   - component: {fileID: 1242179200}
   - component: {fileID: 1242179199}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TestIngButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1030,7 +939,7 @@ RectTransform:
   - {fileID: 1405249611}
   - {fileID: 2073526530}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1120,7 +1029,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1565430302}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CardHandManager, Assembly-CSharp
         m_MethodName: ClearHand
         m_Mode: 1
@@ -1179,11 +1088,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1565430300}
-  - component: {fileID: 1565430303}
-  - component: {fileID: 1565430301}
-  - component: {fileID: 1565430302}
-  - component: {fileID: 1565430304}
-  - component: {fileID: 1565430305}
   m_Layer: 0
   m_Name: CardsManager
   m_TagString: Untagged
@@ -1199,100 +1103,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565430299}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
+  m_Children:
+  - {fileID: 1195158405}
+  - {fileID: 1957397106}
+  m_Father: {fileID: 1854099049}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1565430301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565430299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6378a9adc90b7469eb9a4f88dac911a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gap: 1.5
-  alignment: 2
-  rectArea:
-    serializedVersion: 2
-    x: -18
-    y: -8.5
-    width: 36
-    height: 4.5
-  container: {fileID: 1565430299}
-  item: {fileID: 3623767881891307263, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
---- !u!114 &1565430302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565430299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d87822c19ff414b8a35dd12c96a884, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 3623767881891307263, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
-  amountInitialCards: 8
---- !u!114 &1565430303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565430299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63d55aceb17024f8b981d3c41b3fee9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1565430304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565430299}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabd97dfda8e245479169ea241a3acfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1565430305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565430299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c8c943c8bcd446fa221f6caced4409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardMouseOverEvent: {fileID: 11400000, guid: 0357175aa521e454183cc02e7a7290f7, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1565430302}
-        m_TargetAssemblyTypeName: CardHandManager, Assembly-CSharp
-        m_MethodName: AAShowName
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1595676495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,12 +1136,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595676495}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.048042, y: 21.909506, z: -1102.5771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.048042, y: 21.909506, z: -1092.5771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1854099049}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1595676497
 MonoBehaviour:
@@ -1337,9 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a95bb2f7675406fa760a6ee93dcf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartedEvent: {fileID: 11400000, guid: f4a8509bbcdb14ba9bd8c0a2442911ee, type: 2}
-  boardManager: {fileID: 795043293}
-  cardsManager: {fileID: 1565430299}
 --- !u!114 &1595676498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1267,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1749203387}
-  - component: {fileID: 1749203386}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -1460,19 +1274,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1749203386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749203385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5ff8e1e38cc49c4953f94a817fdcd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardEventData: {fileID: 11400000, guid: 0357175aa521e454183cc02e7a7290f7, type: 2}
 --- !u!4 &1749203387
 Transform:
   m_ObjectHideFlags: 0
@@ -1480,11 +1281,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749203385}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.242983, y: 22.927229, z: -1105.5305}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.242983, y: 22.927229, z: -1095.5305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1854099049}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1767340321
@@ -1722,6 +1523,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843399395}
   m_CullTransparentMesh: 1
+--- !u!1 &1854099048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854099049}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854099049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854099048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1595676496}
+  - {fileID: 795043294}
+  - {fileID: 1565430300}
+  - {fileID: 1749203387}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903475332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,7 +1568,7 @@ GameObject:
   - component: {fileID: 1903475333}
   - component: {fileID: 1903475334}
   m_Layer: 0
-  m_Name: GhostBoard
+  m_Name: PreviewBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1766,6 +1601,36 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &1957397105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957397106}
+  m_Layer: 0
+  m_Name: HandManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957397106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957397105}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4421611, y: 0.791606, z: -0.29677814}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1565430300}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073526529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,7 +1714,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 795043295}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BoardManager, Assembly-CSharp
         m_MethodName: ClearMainBoard
         m_Mode: 1

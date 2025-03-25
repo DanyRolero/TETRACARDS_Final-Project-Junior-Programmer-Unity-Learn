@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52462d8085a54425e918adf1dac25572, type: 3}
-  m_Name: BlockData_5
+  m_Script: {fileID: 11500000, guid: 02285c1b02be1484fbaefe0910f37e74, type: 3}
+  m_Name: CardsHandChangeEvent
   m_EditorClassIdentifier: 
-  tile: {fileID: 11400000, guid: 0f1abac6863504487a08b48d9a6297c4, type: 2}
-  previewTile: {fileID: 11400000, guid: 63ce37f055e824259a8b02e82e3c4a78, type: 2}
+  Event:
+    m_PersistentCalls:
+      m_Calls: []

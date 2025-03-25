@@ -31,4 +31,9 @@ public class GameSettings : MonoBehaviour
         return _instance;
     }
 
+    void Awake()
+    {
+        Application.targetFrameRate = 30;
+    }
+
 }

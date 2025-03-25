@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BlockData_7
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: 2433ff03018984c7fa288856380eadf3, type: 2}
+  previewTile: {fileID: 11400000, guid: 63ce37f055e824259a8b02e82e3c4a78, type: 2}

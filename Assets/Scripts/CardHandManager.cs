@@ -100,9 +100,4 @@ public class CardHandManager : MonoBehaviour
             //cardDataUpdater.SetOrderInLayer(i + 1);
         }   
     }
-
-    public void AAShowName(Card card)
-    {
-        Debug.Log(card.cardName);
-    }
 }

@@ -8,6 +8,8 @@ public class BlockData : ScriptableObject
 {
     [SerializeField] Tile tile;
     public Tile Tile {get; private set;}
+    [SerializeField] Tile previewTile;
+    public Tile PreviewTile {get; private set;}
 
     //Añadir métodos de efectos
 }
