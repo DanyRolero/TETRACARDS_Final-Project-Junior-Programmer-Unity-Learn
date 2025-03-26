@@ -4,5 +4,5 @@ using UnityEngine;
 public class CardsCollectionData : ScriptableObject
 {
     [SerializeField] CardData[] cardData;
-    public CardData[] Collection { get; private set;} 
+    public CardData[] Collection { get => cardData;} 
 }

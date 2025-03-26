@@ -4,10 +4,10 @@ using UnityEngine;
 public class PolyminoData : ScriptableObject
 {
     [SerializeField] IdShape IDForma;
-    public IdShape IdShape {get; private set;}
+    public IdShape IdShape {get => IDForma;}
 
     [SerializeField] Vector3Int[] cells;
-    public Vector3Int[] Cells {get; private set;}
+    public Vector3Int[] Cells {get => cells; private set => cells = value;}
 
     public int CellsCount => Cells.Length;
     public int MinX => CalculateMinX();

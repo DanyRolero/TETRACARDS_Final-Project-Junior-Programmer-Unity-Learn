@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class DeckManager : MonoBehaviour
 {
@@ -9,29 +8,20 @@ public class DeckManager : MonoBehaviour
     private CardsCollectionData cards;
 
     private Dictionary<int, Dictionary<IdShape, List<CardData>>> deck;
-    private Dictionary<int, SuffleBag<IdShape>> randomIndexesByCells;
 
-    private Dictionary<IdShape, SuffleBagIndexes> randomIndexesByShapes;
-    private List<SuffleBagIndexes> randomIndexesByVariant;
+    private SuffleBag<int> randomCellCount;
+    private Dictionary<int, SuffleBag<IdShape>> randomIdShape;
+    private Dictionary<IdShape, SuffleBagIndexes> randomShapeCardList;
 
 
     //--------------------------------------------------------------------------------
-    private void Awake()
+    private void Start()
     {
-        randomIndexesByShapes = new Dictionary<IdShape, SuffleBagIndexes>();
-
-        foreach(int cellCount in deck.Keys)
-        {
-            if(!randomIndexesByShapes[cellCount].ContainsKey(cellCount))
-            {
-                randomIndexesByShapes.Add(cellCount, new SuffleBagIndexes());
-            }
-
-            foreach(IdShape shape in deck[cellCount].Keys)
-            {
-                randomIndexesByShapes
-            }
-        }
+        InitializeDeck();
+        InitializeRandomCellCount();
+        InitializerandomIdShape();
+        InitializerandomShapeCardList();
+        GetRandomCardData();
     }
 
     //--------------------------------------------------------------------------------
@@ -56,27 +46,57 @@ public class DeckManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    private void InitializeRandomIndexesByCells()
+    private void InitializeRandomCellCount()
     {
-        randomIndexesByCells = new Dictionary<int, SuffleBag<IdShape>>();
+        randomCellCount = new SuffleBag<int>();
+
+        foreach(int cellCount in deck.Keys)
+        {
+            randomCellCount.AddElementToBag(cellCount);
+        }
+    }
+    
+    //--------------------------------------------------------------------------------
+    private void InitializerandomIdShape()
+    {
+        randomIdShape = new Dictionary<int, SuffleBag<IdShape>>();
         
         foreach(int cellCount in deck.Keys)
         {
-            if(!randomIndexesByCells.ContainsKey(cellCount))
+            if(!randomIdShape.ContainsKey(cellCount))
             {
-                randomIndexesByCells.Add(cellCount, new SuffleBag<IdShape>());
+                randomIdShape.Add(cellCount, new SuffleBag<IdShape>());
             }
 
             foreach(IdShape shape in deck[cellCount].Keys)
             {
-                randomIndexesByCells[cellCount].AddElementToBag(shape);
+                randomIdShape[cellCount].AddElementToBag(shape);
             }
         }
     }
 
     //--------------------------------------------------------------------------------
-    private void InitializeRandomIndexesByShapes()
+    private void InitializerandomShapeCardList()
     {
+        randomShapeCardList = new Dictionary<IdShape, SuffleBagIndexes>();
 
+        foreach(int cellCount in deck.Keys)
+        {
+            foreach(IdShape shape in deck[cellCount].Keys)
+            {
+                randomShapeCardList.Add(shape, new SuffleBagIndexes(deck[cellCount][shape].Count));
+            }
+        }
+    }
+
+    //--------------------------------------------------------------------------------
+    public CardData GetRandomCardData()
+    {
+        int randomCellCount = this.randomCellCount.GetRandomElement();
+        IdShape randomIdShape = this.randomIdShape[randomCellCount].GetRandomElement();
+        int randomIndex = this.randomShapeCardList[randomIdShape].GetRandomIndex();
+        CardData randomCardData = deck[randomCellCount][randomIdShape][randomIndex];
+
+        return randomCardData;
     }
 }

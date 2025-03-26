@@ -1,13 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
 
 public class SuffleBag<T>
 {
-    private List<T> _collection = new List<T>();
+    private List<T> _collection;
     private List<T> _copyCollection;
 
     //----------------------------------------------------------------
-    public SuffleBag() {}
+    public SuffleBag() 
+    {
+        _collection = new List<T>();
+        _copyCollection = new List<T>();
+    }
 
     //----------------------------------------------------------------
     public SuffleBag(List<T> collection)
@@ -25,6 +31,7 @@ public class SuffleBag<T>
     //----------------------------------------------------------------
     public T GetRandomElement()
     {
+        Console.WriteLine(_copyCollection.Count);
         if (_copyCollection.Count == 0)
         {
             ResetCopyCollection();
@@ -33,6 +40,7 @@ public class SuffleBag<T>
         int randomIndex = UnityEngine.Random.Range(0, _copyCollection.Count);
         T randomElement = _copyCollection[randomIndex];
         _copyCollection.RemoveAt(randomIndex);
+
         return randomElement;
     }
 

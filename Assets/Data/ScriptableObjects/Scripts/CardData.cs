@@ -4,11 +4,11 @@ using UnityEngine;
 public class CardData : ScriptableObject
 {
     [SerializeField] PolyminoData polymino;    
-    public PolyminoData Polymino {get; private set;}
+    public PolyminoData Polymino {get => polymino;}
     [SerializeField] Sprite cardImage;
-    public Sprite Image {get; private set;}
+    public Sprite Image {get => cardImage;}
     [SerializeField] BlockData[] blocks;
-    public BlockData[] Blocks {get; private set;}
+    public BlockData[] Blocks {get => blocks;}
 
     //Efectos
         // Efecto de posicionar en el tablero -> Previsualizable 
