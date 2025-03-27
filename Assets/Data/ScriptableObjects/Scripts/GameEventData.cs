@@ -8,7 +8,6 @@ public class GameEventData : ScriptableObject
 
     public void Raise()
     {
-        // Verifica que el UnityEvent esté asignado y lo invoca
         if (Event != null)
             Event.Invoke();
     }

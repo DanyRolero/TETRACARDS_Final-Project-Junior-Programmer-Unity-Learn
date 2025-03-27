@@ -193,14 +193,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3623767881891307256}
   - component: {fileID: 2879499116381608927}
-  - component: {fileID: 8166341899173853159}
+  - component: {fileID: 9107828307498657364}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3623767881891307256
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3.6681643}
   m_EdgeRadius: 0
---- !u!114 &8166341899173853159
+--- !u!114 &9107828307498657364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,7 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6da0aac0313443483b07ca77a934d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: Evento mouse over de carta exitoso!
+  spriteRenderer: {fileID: 3623767881533104073}
+  xPositionText: {fileID: 5093155072402217795}
 --- !u!1 &7179188165035016805
 GameObject:
   m_ObjectHideFlags: 0

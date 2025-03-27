@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+// Se suscribiría / desuscribiría a los eventos.
+// Se referencia al componentes que definen y lanzan el evento.
+// Se referencia a los componentes que van a responder al evento.
+// Se suscribe los métodos de los componentes que van a responder al evento.
+
 public class GameEventListener : MonoBehaviour
 {
     // Referencia al GameEvent que deseamos escuchar (asigna el asset desde el Inspector)

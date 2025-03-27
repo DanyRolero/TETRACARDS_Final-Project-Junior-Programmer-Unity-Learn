@@ -53,6 +53,7 @@ public class CardHandManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    // Reordena las cartas de la mano por el idOrder de cada carta
     public void ReorderHandCardsByIdOrder()
     {
         int childCount = gameObject.transform.childCount;
@@ -91,6 +92,7 @@ public class CardHandManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    // 
     private void ReorderInLayer()
     {
         int childCount = gameObject.transform.childCount;

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,20 +15,18 @@ public class HorizontalUniformDistributor : MonoBehaviour
     private int amountItems;
 
     //--------------------------------------------------------------------------------
-    void Awake()
-    {
-        container = this.gameObject;
-    }
-
-    //--------------------------------------------------------------------------------
-    public void UpdateDistributor()
+    public void UpdateDistribution()
     {
         if (container.transform.childCount == 0) return;
+        if(CalculateAmountItems() == 0) return;
+
+        amountItems = CalculateAmountItems();
+
         UpdateSubrect();
         UpdateListPositions();
         UpdateItemsPositions();
+        Debug.Log("Distribución actualizada");
     }
-
 
     //--------------------------------------------------------------------------------
     private void UpdateSubrect()
@@ -47,7 +44,6 @@ public class HorizontalUniformDistributor : MonoBehaviour
     private void UpdateListPositions()
     {
         float currentXPosition = subrectArea.x + item.GetComponent<Transform>().localScale.x / 2 + gap;
-        int amountItems = container.transform.childCount;
         float widthOfItem = item.GetComponent<Transform>().localScale.x;
 
         itemsPositions = new List<Vector3>();
@@ -77,7 +73,6 @@ public class HorizontalUniformDistributor : MonoBehaviour
     private float CalculateWidthSubrectArea()
     {
         float widthOfItem = item.GetComponent<Transform>().localScale.x;
-        int amountItems = container.transform.childCount;
         float totalGapWidth = gap * amountItems * 2;
         float totalWidth = widthOfItem * amountItems + totalGapWidth;
 
@@ -112,9 +107,31 @@ public class HorizontalUniformDistributor : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void UpdateItemsPositions()
     {
+        int currentIndexPositions = 0;
+
         for (int i = 0; i < container.transform.childCount; i++)
         {
-            container.transform.GetChild(i).transform.localPosition = itemsPositions[i];
+            if (container.transform.GetChild(i).gameObject.activeSelf)
+            {
+                container.transform.GetChild(i).transform.localPosition = itemsPositions[currentIndexPositions];
+                currentIndexPositions++;
+            }
         }
+    }
+
+    //--------------------------------------------------------------------------------
+    private int CalculateAmountItems()
+    {
+        int activeItems = 0;
+
+        for (int i = 0; i < container.transform.childCount; i++)
+        {
+            if (container.transform.GetChild(i).gameObject.activeSelf)
+            {
+                activeItems++;
+            }
+        }
+
+        return activeItems;
     }
 }

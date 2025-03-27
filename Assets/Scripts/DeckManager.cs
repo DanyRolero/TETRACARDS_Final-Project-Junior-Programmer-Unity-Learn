@@ -1,27 +1,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class DeckManager : MonoBehaviour
 {
-    [SerializeField]
-    private CardsCollectionData cards;
+    [SerializeField] private CardsCollectionData cards;
+    [SerializeField] private GameBalanceSettings settings;
 
     private Dictionary<int, Dictionary<IdShape, List<CardData>>> deck;
-
     private SuffleBag<int> randomCellCount;
     private Dictionary<int, SuffleBag<IdShape>> randomIdShape;
     private Dictionary<IdShape, SuffleBagIndexes> randomShapeCardList;
-
+    private Dictionary<int, SuffleBagIndexes> randomXPosition;
 
     //--------------------------------------------------------------------------------
-    private void Start()
+    public void Initialize()
     {
         InitializeDeck();
         InitializeRandomCellCount();
-        InitializerandomIdShape();
-        InitializerandomShapeCardList();
-        GetRandomCardData();
+        InitializeRandomIdShape();
+        InitializeRandomShapeCardList();
+        InitializeRandomXPosition();
+    }
+
+    //--------------------------------------------------------------------------------
+    private void Awake()
+    {
+        Initialize();
+    }
+
+    //--------------------------------------------------------------------------------
+    public CardData GetRandomCardData()
+    {
+        int randomCellCount = this.randomCellCount.GetRandomElement();
+        IdShape randomIdShape = this.randomIdShape[randomCellCount].GetRandomElement();
+        int randomIndex = this.randomShapeCardList[randomIdShape].GetRandomIndex();
+        CardData randomCardData = deck[randomCellCount][randomIdShape][randomIndex];
+
+        return randomCardData;
+    }
+
+    //--------------------------------------------------------------------------------
+    public int GetRandomXPosition(int width)
+    {
+        return randomXPosition[width].GetRandomIndex();
     }
 
     //--------------------------------------------------------------------------------
@@ -57,7 +78,7 @@ public class DeckManager : MonoBehaviour
     }
     
     //--------------------------------------------------------------------------------
-    private void InitializerandomIdShape()
+    private void InitializeRandomIdShape()
     {
         randomIdShape = new Dictionary<int, SuffleBag<IdShape>>();
         
@@ -76,7 +97,7 @@ public class DeckManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    private void InitializerandomShapeCardList()
+    private void InitializeRandomShapeCardList()
     {
         randomShapeCardList = new Dictionary<IdShape, SuffleBagIndexes>();
 
@@ -90,13 +111,18 @@ public class DeckManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    public CardData GetRandomCardData()
+    private void InitializeRandomXPosition()
     {
-        int randomCellCount = this.randomCellCount.GetRandomElement();
-        IdShape randomIdShape = this.randomIdShape[randomCellCount].GetRandomElement();
-        int randomIndex = this.randomShapeCardList[randomIdShape].GetRandomIndex();
-        CardData randomCardData = deck[randomCellCount][randomIdShape][randomIndex];
+        randomXPosition = new Dictionary<int, SuffleBagIndexes>();
+        int possibleXPositions;
 
-        return randomCardData;
+        foreach(CardData cardData in cards.Collection)
+        {
+            if(!randomXPosition.ContainsKey(cardData.Polymino.Width))
+            {
+                possibleXPositions = settings.gridSize.x - cardData.Polymino.Width + 1;
+                randomXPosition.Add(cardData.Polymino.Width, new SuffleBagIndexes(possibleXPositions));
+            }
+        }
     }
 }
