@@ -10,6 +10,9 @@ public class OrderHandCars : MonoBehaviour
     //--------------------------------------------------------------------------------
     public void OrderHandCards()
     {
+        if(handManager == null) Debug.LogError("handManager is null");
+        if(handManager.CardPool == null) Debug.LogError("CardPool is null");
+
         GetActiveCardsPositions();
         SortCardsByIdOrder();
         SetOrderedPositions();
@@ -46,6 +49,7 @@ public class OrderHandCars : MonoBehaviour
         for (int i = 0; i < activeCards.Count; i++)
         {
             activeCards[i].transform.position = activePositions[i];
+            activeCards[i].SortInLayer(i + 1);
         }
     }
 }

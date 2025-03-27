@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3623767881533104073}
   xPositionText: {fileID: 5093155072402217795}
+  canvas: {fileID: 6010946951863882978}
 --- !u!1 &7179188165035016805
 GameObject:
   m_ObjectHideFlags: 0

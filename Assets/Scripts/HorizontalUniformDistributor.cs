@@ -13,19 +13,20 @@ public class HorizontalUniformDistributor : MonoBehaviour
     private List<Vector3> itemsPositions;
 
     private int amountItems;
+    private float widthItem;
 
     //--------------------------------------------------------------------------------
     public void UpdateDistribution()
     {
         if (container.transform.childCount == 0) return;
-        if(CalculateAmountItems() == 0) return;
+        amountItems = CalculateActiveAmountItems();
+        if(amountItems == 0) return;
 
-        amountItems = CalculateAmountItems();
+        widthItem = item.GetComponent<Transform>().localScale.x;
 
         UpdateSubrect();
         UpdateListPositions();
         UpdateItemsPositions();
-        Debug.Log("Distribución actualizada");
     }
 
     //--------------------------------------------------------------------------------
@@ -43,8 +44,7 @@ public class HorizontalUniformDistributor : MonoBehaviour
     //--------------------------------------------------------------------------------
     private void UpdateListPositions()
     {
-        float currentXPosition = subrectArea.x + item.GetComponent<Transform>().localScale.x / 2 + gap;
-        float widthOfItem = item.GetComponent<Transform>().localScale.x;
+        float currentXPosition = subrectArea.x + widthItem / 2 + gap;
 
         itemsPositions = new List<Vector3>();
 
@@ -53,14 +53,24 @@ public class HorizontalUniformDistributor : MonoBehaviour
             for (int i = 0; i < amountItems; i++)
             {
                 itemsPositions.Add(new Vector3(currentXPosition, rectArea.y, 0));
-                currentXPosition += widthOfItem + gap * 2;
+                currentXPosition += widthItem + gap * 2;
             }
             return;
         }
 
-        currentXPosition = subrectArea.x + widthOfItem / 2;
-        float totalWidthPositionable = subrectArea.width - widthOfItem;
-        float distanceBetweenItems = totalWidthPositionable / (amountItems - 1);
+        currentXPosition = subrectArea.x + widthItem / 2;
+        float totalWidthPositionable = subrectArea.width - widthItem;
+        float distanceBetweenItems;
+
+        if(amountItems == 1)
+        {
+            distanceBetweenItems = 0;
+        }
+        else
+        {
+            distanceBetweenItems = totalWidthPositionable / (amountItems - 1);
+        }
+
         for (int i = 0; i < amountItems; i++)
         {
             itemsPositions.Add(new Vector3(currentXPosition, rectArea.y, 0));
@@ -72,9 +82,8 @@ public class HorizontalUniformDistributor : MonoBehaviour
     //--------------------------------------------------------------------------------
     private float CalculateWidthSubrectArea()
     {
-        float widthOfItem = item.GetComponent<Transform>().localScale.x;
         float totalGapWidth = gap * amountItems * 2;
-        float totalWidth = widthOfItem * amountItems + totalGapWidth;
+        float totalWidth = widthItem * amountItems + totalGapWidth;
 
         if (totalWidth > rectArea.width) return rectArea.width;
         return totalWidth;
@@ -120,7 +129,7 @@ public class HorizontalUniformDistributor : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    private int CalculateAmountItems()
+    private int CalculateActiveAmountItems()
     {
         int activeItems = 0;
 
