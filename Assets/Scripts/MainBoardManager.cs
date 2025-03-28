@@ -8,10 +8,9 @@ public class MainBoardManager : MonoBehaviour
     [SerializeField] private Tilemap mainBoard;
 
     //--------------------------------------------------------------------------------
-    public void SetTile(Vector3Int cell, BlockData blockData)
+    public void SetTile(Vector3Int cell,Tile tile)
     {
-        TileBase tile = mainBoard.GetTile(cell);
-        mainBoard.SetTile(cell, blockData.Tile);
+        mainBoard.SetTile(cell, tile);
     }
 
     //--------------------------------------------------------------------------------
@@ -21,18 +20,14 @@ public class MainBoardManager : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    public void SetBoard(BlockData[,] blocksGrid)
+    public void SetBoard(Tile[,] tiles)
     {
-        for (int x = 0; x < blocksGrid.GetLength(0); x++)
+        for (int x = 0; x < tiles.GetLength(0); x++)
         {
-            for (int y = 0; y < blocksGrid.GetLength(1); y++)
+            for (int y = 0; y < tiles.GetLength(1); y++)
             {
-                BlockData blockData = blocksGrid[x, y];
-                if (blockData != null)
-                {
-                    Vector3Int cell = new Vector3Int(x, y, 0);
-                    SetTile(cell, blockData);
-                }
+                Vector3Int cell = new Vector3Int(x, y, 0);
+                SetTile(cell, tiles[x, y]);
             }
         }
     }
