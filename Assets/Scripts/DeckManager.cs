@@ -26,6 +26,10 @@ public class DeckManager : MonoBehaviour
     private void Awake()
     {
         Initialize();
+        BlockData b = cards.Collection[0].Blocks[0];
+        BlockData a = cards.Collection[1].Blocks[0];
+
+        Debug.Log(b.Equals(a));
     }
 
     //--------------------------------------------------------------------------------

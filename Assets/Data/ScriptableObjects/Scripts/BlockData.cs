@@ -7,9 +7,24 @@ using UnityEngine.Tilemaps;
 public class BlockData : ScriptableObject
 {
     [SerializeField] Tile tile;
-    public Tile Tile {get; private set;}
+    public Tile Tile {get => tile;}
     [SerializeField] Tile previewTile;
-    public Tile PreviewTile {get; private set;}
+    public Tile PreviewTile {get => previewTile;}
+    [SerializeField] BlockEffect blockEffect;
+    public BlockEffect BlockEffect {get => blockEffect;}
 
-    //Añadir métodos de efectos
+    //-----------------------------------------------------------------------------
+    public override bool Equals(object other)
+    {
+        if (other is BlockData blockData)
+        {
+            return tile == blockData.tile && previewTile == blockData.previewTile && blockEffect == blockData.blockEffect;
+        }
+        return false;
+    }
+    //-----------------------------------------------------------------------------
+    public override int GetHashCode()
+    {
+        return tile.GetHashCode() ^ previewTile.GetHashCode() ^ blockEffect.GetHashCode();
+    }
 }
