@@ -1658,6 +1658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 795043294}
+  - component: {fileID: 795043295}
   m_Layer: 0
   m_Name: BoardManager
   m_TagString: Untagged
@@ -1683,6 +1684,18 @@ Transform:
   m_Father: {fileID: 1854099049}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795043295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795043293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717354ef9c3d247c2be79755a7561644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &796238271 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9107828307498657364, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
@@ -3815,6 +3828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12889db4030bc41c59626f8efa6ff51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previwerBoard: {fileID: 0}
 --- !u!114 &1920700238 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9107828307498657364, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
