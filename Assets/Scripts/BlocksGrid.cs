@@ -14,6 +14,13 @@ public class BlocksGrid : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    public BlockData[,] Blocks 
+    {
+        get { return blocks; }
+        private set { blocks = value; }
+    }
+
+    //--------------------------------------------------------------------------------
     public BlockData this[int x, int y]
     {
         get 
