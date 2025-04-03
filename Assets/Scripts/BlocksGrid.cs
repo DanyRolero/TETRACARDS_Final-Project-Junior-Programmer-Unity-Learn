@@ -52,13 +52,13 @@ public class BlocksGrid : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    public void PlaceCard(Card card)
+    public void PlaceBlocks(PlacedBlocks placedBlocks)
     {
-        for (int i = 0; i < card.Polymino.CellsCount; i++)
+        for (int i = 0; i < placedBlocks.Blocks.Length; i++)
         {
-            Vector3Int cell = card.Polymino[i];
+            Vector3Int cell = placedBlocks.Positions[i];
             CheckCellInBounds(cell);
-            blocks[cell.x, cell.y] = card.Blocks[i];
+            blocks[cell.x, cell.y] = placedBlocks.Blocks[i];
         }
     }
 
