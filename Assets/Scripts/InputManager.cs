@@ -4,38 +4,78 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public CardEventData cardEventData;
+    private Camera mainCamera;
+    public CardEventData onHandCardMouseOverEvent;
+    public CardEventData onHandCardLeftClickEvent;
+    public CardEventData onHandCardMouseExitEvent;
     private Vector2 mousePosition;
-    private RaycastHit2D hit;
-    private Card card;
+    private Collider2D objectCollider;
+    private Card currentCard;
+    private Card lastCard;
+
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
 
     //--------------------------------------------------------------------------------
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        objectCollider = Physics2D.OverlapPoint(mousePosition);
 
-        if (hit.collider == null) return;
+        // Si el puntero del ratón está sobre un collider
+        if (objectCollider == null)
+        {
+            // Si el anterior frame estuvo sobre una carta y ahora no
+            if (lastCard != null)
+            {
+                OnHandCardMouseExit();
+                lastCard = null;
+            }
+            return;
+        }
 
-        card = hit.collider.gameObject.GetComponent<Card>();
-        if (card == null) return;
-        
-        OnHandCardMouseOver();
+        // Si el puntero del ratón está sobre un collider y el collider no es una carta
+        currentCard = objectCollider.gameObject.GetComponent<Card>();
+        if (currentCard == null) return;
 
+        // Si el puntero del ratón está sobre una carta y el anterior frame era una carta diferente
+        if (currentCard != lastCard)
+        {
+            if (lastCard != null) OnHandCardMouseExit();
+            lastCard = currentCard;
+            OnHandCardMouseOver();
+        }
+
+        // Si el puntero del ratón está sobre una carta y se hace click
         if (Input.GetMouseButtonDown(0))
         {
-            // OnHandCardLeftClick();
+            OnHandCardLeftClick();
         }
-        
 
     }
 
     //--------------------------------------------------------------------------------
     private void OnHandCardMouseOver()
     {
-        if (card != null) cardEventData.Raise(card);
+        onHandCardMouseOverEvent.Raise(currentCard);
+        Debug.Log("Mouse over card event");
     }
 
     //--------------------------------------------------------------------------------
+    private void OnHandCardLeftClick()
+    {
+        onHandCardLeftClickEvent.Raise(currentCard);
+        Debug.Log("Mouse clicked card event");
+    }
+
+    //--------------------------------------------------------------------------------
+    private void OnHandCardMouseExit()
+    {
+        onHandCardMouseExitEvent.Raise(lastCard);
+        Debug.Log("Mouse exit card event");
+    }
+
 }
