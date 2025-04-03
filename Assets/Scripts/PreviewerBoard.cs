@@ -20,8 +20,11 @@ public class PreviewerBoard : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
-    public void SetTiles(BlockData[] blocks)
+    public void SetTiles(Card card)
     {
-
+        for (int i = 0; i < card.Polymino.CellsCount; i++)
+        {
+            previwerBoard.SetTile(card.Polymino[i], card.Blocks[i].PreviewTile);
+        }
     }
 }

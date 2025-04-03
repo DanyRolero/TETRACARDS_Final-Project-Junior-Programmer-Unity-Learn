@@ -121,6 +121,16 @@ public class PolyminoData : ScriptableObject
     }
 
     //----------------------------------------------------------------
+    public void MoveTo(Vector3Int position)
+    {
+        Vector3Int offset = position - Cells[0];
+        for (int i = 0; i < Cells.Length; i++)
+        {
+            Cells[i] += offset;
+        }
+    }
+
+    //----------------------------------------------------------------
     public PolyminoData Clone()
     {
         PolyminoData clone = (PolyminoData)MemberwiseClone();

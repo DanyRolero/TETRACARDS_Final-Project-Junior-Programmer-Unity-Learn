@@ -52,6 +52,17 @@ public class BlocksGrid : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    public void PlaceCard(Card card)
+    {
+        for (int i = 0; i < card.Polymino.CellsCount; i++)
+        {
+            Vector3Int cell = card.Polymino[i];
+            CheckCellInBounds(cell);
+            blocks[cell.x, cell.y] = card.Blocks[i];
+        }
+    }
+
+    //--------------------------------------------------------------------------------
     public void ClearGrid()
     {
         CellsIterate((x, y, block) => blocks[x, y] = null);

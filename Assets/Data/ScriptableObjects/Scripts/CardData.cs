@@ -10,6 +10,7 @@ public class CardData : ScriptableObject
     [SerializeField] BlockData[] blocks;
     public BlockData[] Blocks {get => blocks;}
 
-    //Efectos
-        // Efecto de posicionar en el tablero -> Previsualizable 
+    [SerializeField] CardPlacedEffectData cardPlacedEffect;
+    public CardPlacedEffectData CardPlacedEffect {get => cardPlacedEffect;}
+
 }

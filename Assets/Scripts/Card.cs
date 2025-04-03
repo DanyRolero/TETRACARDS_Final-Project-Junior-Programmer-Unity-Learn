@@ -27,9 +27,26 @@ public class Card : MonoBehaviour
         xPositionText.text = (1 + XPosition).ToString();
     }
 
+    //--------------------------------------------------------------------------------
     public void SortInLayer(int order)
     {
         spriteRenderer.sortingOrder = order;
         canvas.sortingOrder = order;
+    }
+
+    //--------------------------------------------------------------------------------
+    public Card Clone()
+    {
+        Card newCard = Instantiate(this);
+        newCard.spriteRenderer = spriteRenderer;
+        newCard.xPositionText = xPositionText;
+        newCard.canvas = canvas;
+        newCard.CardImage = CardImage;
+        newCard.XPosition = XPosition;
+        newCard.Polymino = Polymino.Clone();
+        newCard.IdOrder = IdOrder;
+        newCard.Blocks = Blocks;
+
+        return newCard;
     }   
 }
