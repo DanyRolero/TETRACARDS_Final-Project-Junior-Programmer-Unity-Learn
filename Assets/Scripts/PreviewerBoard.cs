@@ -24,7 +24,7 @@ public class PreviewerBoard : MonoBehaviour
     {
         for (int i = 0; i < placedBlocks.Blocks.Length; i++)
         {
-            previwerBoard.SetTile(placedBlocks.Positions[i], placedBlocks.Blocks[i].Tile);
+            previwerBoard.SetTile(placedBlocks.Positions[i], placedBlocks.Blocks[i].PreviewTile);
         }
     }
 }

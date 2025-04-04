@@ -562,11 +562,11 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: 0
+    e03: -1.5
     e10: 0
     e11: 1
     e12: 0
-    e13: 0
+    e13: -7
     e20: 0
     e21: 0
     e22: 1
@@ -2512,7 +2512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3623767881891307263, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 512357870607e4dc797d5dacc7273fcf, type: 3}
@@ -3215,6 +3215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a95bb2f7675406fa760a6ee93dcf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardPlacedEffectData: {fileID: 11400000, guid: 6737dac321fba4c8ca7b74a2ec50eba2, type: 2}
+  cardData: {fileID: 11400000, guid: e0d7157ff57d04ed2b79bd2f41651432, type: 2}
+  grid: {fileID: 795043295}
+  card: {fileID: 1920700238}
+  previewerBoard: {fileID: 1903475335}
 --- !u!114 &1595676498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3566,11 +3571,11 @@ Tilemap:
     e00: 1
     e01: 0
     e02: 0
-    e03: 0
+    e03: -1.5
     e10: 0
     e11: 1
     e12: 0
-    e13: 0
+    e13: -7
     e20: 0
     e21: 0
     e22: 1

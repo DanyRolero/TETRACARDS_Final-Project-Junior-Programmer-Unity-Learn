@@ -6,11 +6,14 @@ using UnityEngine;
 public class BlocksGrid : MonoBehaviour
 {
     private BlockData[,] blocks;
+    private const int EXTRA_FALL_ROWS = 6; // Extra rows for falling blocks, detect game over
+    public int Width => blocks.GetLength(0);
+    public int Height => blocks.GetLength(1);
 
     //--------------------------------------------------------------------------------
     public void Initialize(Vector2Int size)
     {
-        blocks = new BlockData[size.x, size.y];
+        blocks = new BlockData[size.x, size.y + EXTRA_FALL_ROWS];
     }
 
     //--------------------------------------------------------------------------------

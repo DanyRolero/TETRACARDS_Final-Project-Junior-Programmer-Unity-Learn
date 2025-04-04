@@ -12,6 +12,7 @@ public class CardsHandInputManager : MonoBehaviour
     private Collider2D objectCollider;
     private Card currentCard;
     private Card lastCard;
+    private Card clickedCard;
 
     void Start()
     {
@@ -52,9 +53,17 @@ public class CardsHandInputManager : MonoBehaviour
         // Si el puntero del ratón está sobre una carta y se hace click
         if (Input.GetMouseButtonDown(0))
         {
-            OnHandCardLeftClick();
+            clickedCard = currentCard;
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (clickedCard == currentCard)
+            {
+                OnHandCardLeftClick();
+            }
+            clickedCard = null;
+        }
     }
 
     //--------------------------------------------------------------------------------
