@@ -50,6 +50,7 @@ public class OrderHandCars : MonoBehaviour
         {
             activeCards[i].transform.position = activePositions[i];
             activeCards[i].SortInLayer(i + 1);
+            activeCards[i].transform.position += new Vector3(0, 0, -i);
         }
     }
 }

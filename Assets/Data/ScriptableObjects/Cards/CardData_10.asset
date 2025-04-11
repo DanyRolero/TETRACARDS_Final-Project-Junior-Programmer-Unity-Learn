@@ -19,3 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c94ab5bd8f2894ac9849b6cfcd7b8c3c, type: 2}
   - {fileID: 11400000, guid: c94ab5bd8f2894ac9849b6cfcd7b8c3c, type: 2}
   - {fileID: 11400000, guid: c94ab5bd8f2894ac9849b6cfcd7b8c3c, type: 2}
+  cardPlacedEffect: {fileID: 11400000, guid: 6737dac321fba4c8ca7b74a2ec50eba2, type: 2}

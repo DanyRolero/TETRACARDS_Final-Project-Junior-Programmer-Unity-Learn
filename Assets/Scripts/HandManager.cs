@@ -8,8 +8,6 @@ public class HandManager : MonoBehaviour
     public List<Card> CardPool { get => cardPool; }
 
     public GameEventData handChangedEvent;
-    //Crearía un delegado
-    //Crearía un evento
 
     //--------------------------------------------------------------------------------
     public void AddCard(int xPolyminoPosition, CardData cardData)
@@ -21,11 +19,9 @@ public class HandManager : MonoBehaviour
                 cardPool[i].Initialize(xPolyminoPosition, cardData);
                 ActiveCard(cardPool[i]);
                 handChangedEvent.Raise();
-                //Se emitiría el evento
                 return;
             }
         }
-
     }
 
     //--------------------------------------------------------------------------------

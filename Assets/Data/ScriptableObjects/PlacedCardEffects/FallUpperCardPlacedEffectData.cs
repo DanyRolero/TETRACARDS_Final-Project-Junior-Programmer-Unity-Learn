@@ -11,21 +11,15 @@ public class FallUpperCardPlacedEffectData : CardPlacedEffectData
         PolyminoData polymino = card.Polymino.Clone();
         polymino.Move(new Vector3Int(0, grid.Height - polymino.Height, 0));
 
-        for(int y = grid.Height - 1; y >= 0 + polymino.Height; y--)
+        while(!grid.IsPolyminoCollision(polymino))
         {
-            if(!grid.IsPolyminoCollision(polymino))
-            {
-                polymino.Move(Vector3Int.down);
-            }
-            else
-            {
-                polymino.Move(Vector3Int.up);
-                break;
-            }
+            if(polymino.MinY == 0) break;
+            polymino.Move(Vector3Int.down);
         }
 
-        PlacedBlocks placedBlocks = new PlacedBlocks(card.Blocks, polymino.Cells);
-        
+        if(grid.IsPolyminoCollision(polymino)) polymino.Move(Vector3Int.up);
+
+        PlacedBlocks placedBlocks = new PlacedBlocks(card.Blocks, polymino.Cells);        
 
         return placedBlocks;
     }

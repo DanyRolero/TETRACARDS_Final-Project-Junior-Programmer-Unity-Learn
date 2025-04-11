@@ -1,215 +1,40 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class BoardManager : MonoBehaviour
 {
-    public List<Tile> tiles;
-    public Tilemap mainBoard;
-    public Tilemap ghostBoard;
-    public GameObject grid;
-    public int heightGrid;
-    public int widthGrid;
-    private TileBase[] rowTiles;
-    public Dictionary<String, int> Counters { get; private set; }
+    [SerializeField] private PreviewerBoard previewerBoard;
+    [SerializeField] private BlocksGrid blocksGrid;
+    [SerializeField] private MainBoardManager mainBoardManager;
+    [SerializeField] private BoardSettings boardSettings;
 
-
-    //--------------------------------------------------------------------------------
-    public void Initialize(Vector2Int size)
+    //----------------------------------------------------------------------------
+    void Awake()
     {
-        widthGrid = size.x;
-        heightGrid = size.y;
-
-        grid.GetComponent<SpriteRenderer>().size = size;
-
-
-        float xOffset = size.x / -2 + 0.5f;
-        float yOffset = size.y / -2;
-
-        mainBoard.GetComponent<Tilemap>().tileAnchor = new Vector3(xOffset, yOffset, 0);
-        ghostBoard.GetComponent<Tilemap>().tileAnchor = new Vector3(xOffset, yOffset, 0);
-
-        Counters = new Dictionary<string, int>();
-        Counters.Add("Rows", 0);
-    }
-    //--------------------------------------------------------------------------------
-    // Verifica si una celda del tilemap contiene un tile
-    private bool IsCellOccupied(Vector3Int cell)
-    {
-        return mainBoard.GetTile(cell) != null;
+        blocksGrid.Initialize(boardSettings.gridSize);
     }
 
-    //--------------------------------------------------------------------------------
-    // Verifica si colisiona alguna de las celdas del polymino con alguno de los tiles del tablero
-    private bool IsPolyminoColliding(PolyminoData polymino)
-    {
-        foreach (Vector3Int cell in polymino.Cells)
-        {
-            if (IsCellOccupied(cell))
-            {
-                return true;
-            }
-        }
 
-        return false;
+    //----------------------------------------------------------------------------
+    public void PlacedBlockPreview(Card card)
+    {
+        PlacedBlocks placedBlocks = card.placedEffectData.ApplyEffect(card, blocksGrid);
+        previewerBoard.SetTiles(placedBlocks);
     }
 
-    //--------------------------------------------------------------------------------
-    // Mueve un polymino a la fila más baja posible en la que no colisiona con ningún tile
-    // COMPORTAMIENTO DE LA PIEZA EN EL TABLERO
-    private PolyminoData TrackLowestValidPosition(PolyminoData polymino)
+    //----------------------------------------------------------------------------
+    public void CleanPreview()
     {
-        ClearGhostBoard();
-
-        PolyminoData clon = polymino.Clone();
-        clon.Move(new Vector3Int(0, heightGrid - 1, 0));
-        int currentY = heightGrid - 1;
-
-        while (!IsPolyminoColliding(clon))
-        {
-            if (currentY == 0) return clon;
-
-            clon.Move(new Vector3Int(0, -1, 0));
-            currentY--;
-        }
-
-        clon.Move(new Vector3Int(0, 1, 0));
-
-        return clon;
+        previewerBoard.ClearBoard();
     }
 
-    //--------------------------------------------------------------------------------
-    // Dibuja en tilemap a partir de un polymino
-    // PREVISUALIZACIÓN
-    private void DrawGhostPolymino(PolyminoData polymino)
+    //----------------------------------------------------------------------------
+    public void PlaceBlocks(Card card)
     {
-        foreach (Vector3Int cell in polymino.Cells)
-        {
-            ghostBoard.SetTile(cell, tiles[13]);
-        }
+        PlacedBlocks placedBlocks = card.placedEffectData.ApplyEffect(card, blocksGrid);
+        blocksGrid.PlaceBlocks(placedBlocks);
+        mainBoardManager.SetBoard(blocksGrid.GetTiles());
     }
 
-    //--------------------------------------------------------------------------------
-    // Limpia el tablero de previsión
-    public void ClearGhostBoard()
-    {
-        ghostBoard.ClearAllTiles();
-    }
-
-    //--------------------------------------------------------------------------------
-    // Despeja el tablero de juego
-    public void ClearMainBoard()
-    {
-        mainBoard.ClearAllTiles();
-    }
-
-    //--------------------------------------------------------------------------------
-    // Dibuja la posición prevista en el tilemap
-    // PREVISUALIZACIÓN
-    public PolyminoData PreviewPolyminoInBoard(PolyminoData polymino)
-    {
-        PolyminoData ghostPolymino = TrackLowestValidPosition(polymino);
-        DrawGhostPolymino(ghostPolymino);
-        return ghostPolymino;
-    }
-
-    //--------------------------------------------------------------------------------
-    // Dibuja en el tilemap a partir de un polymino dado
-    public void PlacePolyminoInBoard(PolyminoData polymino, Tile tile)
-    {
-        foreach (Vector3Int cell in polymino.Cells)
-        {
-            mainBoard.SetTile(cell, tile);
-        }
-    }
-
-    //--------------------------------------------------------------------------------
-    // Verifica si una fila tiene un tila en cada una de sus celdas
-    private bool CheckRowIsFull(int row)
-    {
-        for (int x = 0; x < widthGrid; x++)
-        {
-            if (!IsCellOccupied(new Vector3Int(x, row, 0)))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    //--------------------------------------------------------------------------------
-    private void CountTotalFullRows()
-    {
-        Counters["Rows"] = 0;
-        for (int y = 0; y < heightGrid; y++)
-        {
-            if (!CheckRowIsFull(y)) continue;
-            Counters["Rows"]++;
-        }
-    }
-
-    //--------------------------------------------------------------------------------
-    public void Recount()
-    {
-        CountTotalFullRows();
-    }
-
-    //--------------------------------------------------------------------------------
-    private void ClearRow(int row)
-    {
-        for (int x = 0; x < widthGrid; x++)
-        {
-            mainBoard.SetTile(new Vector3Int(x, row, 0), null);
-        }
-    }
-
-    //--------------------------------------------------------------------------------
-    // Copia los tiles de una fila
-    private void CopyRow(int row)
-    {
-        rowTiles = new Tile[widthGrid];
-
-        for (int x = 0; x < widthGrid; x++)
-        {
-            rowTiles[x] = mainBoard.GetTile(new Vector3Int(x, row, 0));
-        }
-    }
-
-    //--------------------------------------------------------------------------------
-    // Dibuja los tiles de la fila guardada
-    private void PasteRow(int row)
-    {
-        for (int x = 0; x < widthGrid; x++)
-        {
-            mainBoard.SetTile(new Vector3Int(x, row, 0), rowTiles[x]);
-        }
-    }
-
-    //--------------------------------------------------------------------------------
-    // Copia y pega cada fila desde la posición de fila especificada y hacia abajo
-    private void MoveRowsDown(int rowStart)
-    {
-        for (int y = rowStart; y < heightGrid; y++)
-        {
-            CopyRow(y);
-            PasteRow(y - 1);
-        }
-    }
-
-    //--------------------------------------------------------------------------------
-    // Borra las filas que están completas y desplaza hacia abajo las filas que hay por encima
-    public void CleanFullRows()
-    {
-        for (int y = 0; y < heightGrid; y++)
-        {
-            if (CheckRowIsFull(y))
-            {
-                MoveRowsDown(y + 1);
-                CleanFullRows();
-            }
-        }
-    }
 }

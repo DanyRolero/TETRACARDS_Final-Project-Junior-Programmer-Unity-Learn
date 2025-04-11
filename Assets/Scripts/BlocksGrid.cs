@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BlocksGrid : MonoBehaviour
 {
@@ -38,6 +39,18 @@ public class BlocksGrid : MonoBehaviour
     {
         CheckCellInBounds(cell);
         return blocks[cell.x, cell.y];
+    }
+
+    //--------------------------------------------------------------------------------
+    public Tile[,] GetTiles()
+    {
+        Tile[,] tiles = new Tile[Width, Height];
+
+        CellsIterate((int x, int y, BlockData block) => {
+            if(block != null) tiles[x,y] = blocks[x,y].Tile;
+        });
+
+        return tiles;
     }
 
     //--------------------------------------------------------------------------------

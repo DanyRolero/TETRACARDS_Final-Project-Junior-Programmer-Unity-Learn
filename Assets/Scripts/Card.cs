@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
     public PolyminoData Polymino {get; private set;}
     public int IdOrder {get; private set;}
     public BlockData[] Blocks {get; private set;}
+    public CardPlacedEffectData placedEffectData {get; private set;}
 
     public void Initialize(int xPosition, CardData cardData)
     {
@@ -25,6 +26,7 @@ public class Card : MonoBehaviour
 
         spriteRenderer.sprite = CardImage;
         xPositionText.text = (1 + XPosition).ToString();
+        placedEffectData = cardData.CardPlacedEffect;
     }
 
     //--------------------------------------------------------------------------------

@@ -7,9 +7,9 @@ public class CardsHandInputManager : MonoBehaviour
     private Camera mainCamera;
     public CardEventData onHandCardMouseOverEvent;
     public CardEventData onHandCardLeftClickEvent;
-    public CardEventData onHandCardMouseExitEvent;
+    public GameEventData onHandCardMouseExitEvent;
     private Vector2 mousePosition;
-    private Collider2D objectCollider;
+    private RaycastHit2D hit;
     private Card currentCard;
     private Card lastCard;
     private Card clickedCard;
@@ -24,10 +24,10 @@ public class CardsHandInputManager : MonoBehaviour
     void Update()
     {
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        objectCollider = Physics2D.OverlapPoint(mousePosition);
+        hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
         // Si el puntero del ratón está sobre un collider
-        if (objectCollider == null)
+        if (hit.collider == null)
         {
             // Si el anterior frame estuvo sobre una carta y ahora no
             if (lastCard != null)
@@ -39,7 +39,7 @@ public class CardsHandInputManager : MonoBehaviour
         }
 
         // Si el puntero del ratón está sobre un collider y el collider no es una carta
-        currentCard = objectCollider.gameObject.GetComponent<Card>();
+        currentCard = hit.collider.gameObject.GetComponent<Card>();
         if (currentCard == null) return;
 
         // Si el puntero del ratón está sobre una carta y el anterior frame era una carta diferente
@@ -70,21 +70,18 @@ public class CardsHandInputManager : MonoBehaviour
     private void OnHandCardMouseOver()
     {
         onHandCardMouseOverEvent.Raise(currentCard);
-        Debug.Log("Mouse over card event");
     }
 
     //--------------------------------------------------------------------------------
     private void OnHandCardLeftClick()
     {
         onHandCardLeftClickEvent.Raise(currentCard);
-        Debug.Log("Mouse clicked card event");
     }
 
     //--------------------------------------------------------------------------------
     private void OnHandCardMouseExit()
     {
-        onHandCardMouseExitEvent.Raise(lastCard);
-        Debug.Log("Mouse exit card event");
+        onHandCardMouseExitEvent.Raise();
     }
 
 }

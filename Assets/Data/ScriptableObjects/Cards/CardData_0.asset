@@ -16,3 +16,4 @@ MonoBehaviour:
   cardImage: {fileID: 21300000, guid: 270cf41fab89146a5b62117d80dc2d3c, type: 3}
   blocks:
   - {fileID: 11400000, guid: 9e4449547b5d3493a884295013406bd5, type: 2}
+  cardPlacedEffect: {fileID: 11400000, guid: 6737dac321fba4c8ca7b74a2ec50eba2, type: 2}
