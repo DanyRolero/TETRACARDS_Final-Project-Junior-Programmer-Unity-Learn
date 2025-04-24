@@ -5,11 +5,14 @@ using UnityEngine;
 public class CardsHandInputManager : MonoBehaviour
 {
     private Camera mainCamera;
+
     public CardEventData onHandCardMouseOverEvent;
     public CardEventData onHandCardLeftClickEvent;
     public GameEventData onHandCardMouseExitEvent;
+
     private Vector2 mousePosition;
     private RaycastHit2D hit;
+    
     private Card currentCard;
     private Card lastCard;
     private Card clickedCard;
