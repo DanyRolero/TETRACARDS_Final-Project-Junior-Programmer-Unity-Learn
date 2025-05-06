@@ -11,8 +11,9 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private BoardSettings boardSettings;
 
     public GameEventData boardChangedEvent;
+    public RowsCompleteEventData completeRowsEvent;
 
-    //----------------------------------------------------------------------------
+    //------------- ---------------------------------------------------------------
     void Awake()
     {
         blocksGrid.Initialize(boardSettings.gridSize);
@@ -37,9 +38,47 @@ public class BoardManager : MonoBehaviour
     {
         PlacedBlocks placedBlocks = card.placedEffectData.ApplyEffect(card, blocksGrid);
         blocksGrid.PlaceBlocks(placedBlocks);
+
+        int completeRows = CountCompleteRows();
+
+        if (completeRows > 0)
+        {
+            ClearCompleteRowsAndMoveRows();
+            completeRowsEvent.Raise(completeRows);
+        }
+
         mainBoardManager.SetBoard(blocksGrid.GetTiles());
 
-        InBoardChanged();
+
+  
+    }
+
+    //----------------------------------------------------------------------------
+    private int CountCompleteRows()
+    {
+        int completeRows = 0;
+        for (int i = 0; i < blocksGrid.Height; i++)
+        {
+            if (blocksGrid.IsRowComplete(i)) completeRows++;
+        }
+        return completeRows;
+    }
+
+    //----------------------------------------------------------------------------
+    private void ClearCompleteRowsAndMoveRows()
+    {
+        for (int i = 0; i < blocksGrid.Height - 1; i++)
+        {
+            if (blocksGrid.IsRowComplete(i))
+            {
+                blocksGrid.ClearRow(i);
+                for (int j = i + 1; j < blocksGrid.Height - 1; j++)
+                {
+                    blocksGrid.MoveRowDown(j);
+                }
+                i--;
+            }
+        }
     }
 
     //----------------------------------------------------------------------------

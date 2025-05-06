@@ -15,8 +15,8 @@ MonoBehaviour:
   polymino: {fileID: 11400000, guid: 593168b75dfef44bfb20ecc1c85a7218, type: 2}
   cardImage: {fileID: 21300000, guid: e8784d678d30541c1ac7778eb7e6fafc, type: 3}
   blocks:
-  - {fileID: 11400000, guid: d23a86de441374a4dad34c1eb00ff4cb, type: 2}
-  - {fileID: 11400000, guid: d23a86de441374a4dad34c1eb00ff4cb, type: 2}
-  - {fileID: 11400000, guid: d23a86de441374a4dad34c1eb00ff4cb, type: 2}
-  - {fileID: 11400000, guid: d23a86de441374a4dad34c1eb00ff4cb, type: 2}
+  - {fileID: 11400000, guid: 577a813614c7243c99999f5def10bc0b, type: 2}
+  - {fileID: 11400000, guid: 577a813614c7243c99999f5def10bc0b, type: 2}
+  - {fileID: 11400000, guid: 577a813614c7243c99999f5def10bc0b, type: 2}
+  - {fileID: 11400000, guid: 577a813614c7243c99999f5def10bc0b, type: 2}
   cardPlacedEffect: {fileID: 11400000, guid: 6737dac321fba4c8ca7b74a2ec50eba2, type: 2}

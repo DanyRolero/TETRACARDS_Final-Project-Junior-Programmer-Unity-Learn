@@ -130,6 +130,29 @@ public class BlocksGrid : MonoBehaviour
     }
 
     //--------------------------------------------------------------------------------
+    public void ClearRow(int row)
+    {
+        CheckCellInBounds(0, row);
+
+        for (int x = 0; x < blocks.GetLength(0); x++)
+        {
+            blocks[x, row] = null;
+        }
+    }
+
+    //--------------------------------------------------------------------------------
+    public void MoveRowDown(int row)
+    {
+        CheckCellInBounds(0, row);
+
+        for (int x = 0; x < blocks.GetLength(0); x++)
+        {
+            blocks[x, row - 1] = blocks[x, row];
+            blocks[x, row] = null;
+        }
+    }
+
+    //--------------------------------------------------------------------------------
     public Vector3Int[] GetRow(int row)
     {
         CheckCellInBounds(0, row);

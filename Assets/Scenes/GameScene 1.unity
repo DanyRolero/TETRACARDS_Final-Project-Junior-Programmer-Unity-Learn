@@ -1761,6 +1761,7 @@ MonoBehaviour:
   mainBoardManager: {fileID: 1185769276}
   boardSettings: {fileID: 11400000, guid: 22faee13965dc4ee7a0255581eb86de7, type: 2}
   boardChangedEvent: {fileID: 11400000, guid: c3b67ad6d6fad4d7999f949cb3391337, type: 2}
+  completeRowsEvent: {fileID: 11400000, guid: 770c1cf75817c43a794b4ec96a470a31, type: 2}
 --- !u!114 &795043297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3207,6 +3208,7 @@ GameObject:
   - component: {fileID: 1565430301}
   - component: {fileID: 1565430302}
   - component: {fileID: 1565430303}
+  - component: {fileID: 1565430304}
   m_Layer: 0
   m_Name: CardsManager
   m_TagString: Untagged
@@ -3311,6 +3313,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1565430301}
         m_TargetAssemblyTypeName: CardsManager, Assembly-CSharp
         m_MethodName: PlayCard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1565430304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565430299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2bd3663072f48b6a74e883b596a5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowsCompleteEvent: {fileID: 11400000, guid: 770c1cf75817c43a794b4ec96a470a31, type: 2}
+  onRowsCompleteResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1565430301}
+        m_TargetAssemblyTypeName: CardsManager, Assembly-CSharp
+        m_MethodName: DrawCardsOnCompleteRows
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
