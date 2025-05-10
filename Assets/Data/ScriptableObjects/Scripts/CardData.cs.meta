@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ef99f9da2f0b74334877413179fb46a5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - polymino: {fileID: 11400000, guid: 3f7956a4c2f8449ebbe6adc4c734484d, type: 2}
+  - cardImage: {fileID: 21300000, guid: 270cf41fab89146a5b62117d80dc2d3c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
